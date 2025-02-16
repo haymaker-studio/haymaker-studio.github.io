@@ -4,9 +4,8 @@ import { ArrowRight, CheckCircle2, Users, BarChart2, MessageSquare } from 'lucid
 function App() {
   // Force rebuild timestamp: 12:36 pm 2/16/25
   return (
-    {/* Add a new element to force rebuild */}
-    <p>{new Date().toISOString()}</p>
     <div className="min-h-screen bg-white">
+      <div className="p-4">{new Date().toISOString()}</div>
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
