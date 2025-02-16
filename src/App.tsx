@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, CheckCircle2, Users, BarChart2, MessageSquare } from 'lucide-react';
 
 function App() {
+  // Force rebuild timestamp: 12:36 pm 2/16/25
   return (
     <div className="min-h-screen bg-white">
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
