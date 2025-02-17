@@ -4,7 +4,7 @@ import { Check } from 'lucide-react';
 export default function Services() {
   const packages = [
     {
-      name: "Hands-Free Social Growth",
+      name: "Full Management",
       price: "$1,500+",
       features: [
         "8-12 videos per month",
@@ -16,7 +16,7 @@ export default function Services() {
       ]
     },
     {
-      name: "Content Creation & Growth",
+      name: "Growth Package",
       price: "$750-$1,000",
       features: [
         "6-12 videos per month",
@@ -28,7 +28,7 @@ export default function Services() {
       ]
     },
     {
-      name: "College Exclusive",
+      name: "College Athlete",
       price: "$350",
       features: [
         "8-12 posts/month",
@@ -45,8 +45,8 @@ export default function Services() {
     <section id="services" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Choose a Plan That Works for You</h2>
-          <p className="text-xl text-gray-600">Flexible packages designed for athletes at every level</p>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Flexible Plans for Every Athlete</h2>
+          <p className="text-xl text-gray-600">Choose the package that best fits your goals</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
