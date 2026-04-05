@@ -15,16 +15,16 @@
   --hm-white:        #FFFFFF;
 
   /* UI Surfaces */
-  --hm-surface-1:    #1A1A1A;
-  --hm-surface-2:    #222222;
-  --hm-surface-3:    #2A2A2A;
-  --hm-surface-4:    #1E1E1E;
+  --hm-surface-1:    #1E1E1E;
+  --hm-surface-2:    #242424;
+  --hm-surface-3:    #333333;
+  --hm-surface-4:    #222222;
 
   /* Text */
   --hm-text-primary:   #FFFFFF;
-  --hm-text-secondary: #CCCCCC;
-  --hm-text-tertiary:  #888888;
-  --hm-text-muted:     #555555;
+  --hm-text-secondary: #D8D8D8;
+  --hm-text-tertiary:  #999999;
+  --hm-text-muted:     #6A6A6A;
   --hm-text-inactive:  #444444;
 
   /* Semantic */
@@ -835,3 +835,198 @@ blockquote cite {
     grid-template-columns: 1fr 1fr; /* keep pairs side by side */
   }
 }
+
+/* ============================================
+   Scroll Reveal Animation
+   ============================================ */
+.js-enabled .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s cubic-bezier(0, 0, 0.2, 1),
+              transform 0.5s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.js-enabled .reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.js-enabled .reveal-d1 { transition-delay: 0.08s; }
+.js-enabled .reveal-d2 { transition-delay: 0.16s; }
+.js-enabled .reveal-d3 { transition-delay: 0.24s; }
+.js-enabled .reveal-d4 { transition-delay: 0.32s; }
+.js-enabled .reveal-d5 { transition-delay: 0.40s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js-enabled .reveal,
+  .js-enabled .reveal.visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Nav scrolled state */
+.nav-scrolled {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(17, 17, 17, 0.94) !important;
+  border-bottom-color: var(--hm-surface-3) !important;
+}
+
+/* ============================================
+   Who Does What Diagram
+   ============================================ */
+.wdw-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  border: 0.5px solid var(--hm-surface-3);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 64px;
+}
+
+.wdw-col {
+  padding: 28px 32px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wdw-you {
+  border-right: 0.5px solid var(--hm-surface-3);
+}
+
+.wdw-haymaker {
+  background: var(--hm-surface-1);
+}
+
+.wdw-head {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--hm-text-muted);
+  margin-bottom: 20px;
+}
+
+.wdw-haymaker .wdw-head {
+  color: var(--hm-red);
+}
+
+.wdw-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  flex: 1;
+}
+
+.wdw-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--hm-text-secondary);
+  line-height: 1.4;
+}
+
+.wdw-item::before {
+  content: '';
+  width: 4px;
+  min-width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--hm-text-inactive);
+}
+
+.wdw-haymaker .wdw-item::before {
+  background: var(--hm-red);
+}
+
+.wdw-foot {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 0.5px solid var(--hm-surface-3);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--hm-text-muted);
+}
+
+.wdw-haymaker .wdw-foot {
+  color: var(--hm-text-primary);
+}
+
+@media (max-width: 640px) {
+  .wdw-grid {
+    grid-template-columns: 1fr;
+  }
+  .wdw-you {
+    border-right: none;
+    border-bottom: 0.5px solid var(--hm-surface-3);
+  }
+}
+
+/* ============================================
+   Time Bar Diagram
+   ============================================ */
+.time-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 40px;
+}
+
+.time-bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.time-bar-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.time-bar-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--hm-text-muted);
+}
+
+.time-bar-value {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--hm-text-tertiary);
+  white-space: nowrap;
+}
+
+.time-bar-track {
+  height: 7px;
+  background: var(--hm-surface-2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.time-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  width: 0;
+  transition: width 0.9s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.time-bar-row.visible .time-bar-fill {
+  width: var(--bar-w, 0%);
+}
+
+.time-bar-fill-gray  { background: var(--hm-text-tertiary); }
+.time-bar-fill-red   { background: var(--hm-red); }
+.time-bar-fill-dim   { background: var(--hm-surface-3); width: 6px !important; }

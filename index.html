@@ -29,7 +29,7 @@
   </nav>
 
   <!-- ==========================================
-       HERO
+       HERO  (no reveal — instant load)
        ========================================== -->
   <section style="padding: calc(var(--nav-height) + 80px) 0 96px; min-height: 100svh; display: flex; align-items: center;">
     <div class="container">
@@ -59,7 +59,7 @@
        ========================================== -->
   <div class="proof-bar">
     <div class="container">
-      <div class="proof-bar-inner">
+      <div class="proof-bar-inner reveal">
         <span class="proof-item">Stanford Athletics</span>
         <span class="proof-dot">·</span>
         <span class="proof-item">USAG</span>
@@ -79,28 +79,28 @@
       <div class="grid-2-center">
 
         <!-- REPLACE: Ian Gunther competition photo — pitch deck page 4 -->
-        <div class="img-placeholder" style="aspect-ratio: 4/5; border-radius: 12px;">
+        <div class="img-placeholder reveal" style="aspect-ratio: 4/5; border-radius: 12px;">
           <span style="font-size: 24px;">📸</span>
           <span class="img-placeholder-tag">Replace with photo</span>
           <span class="img-placeholder-label">Ian Gunther — competition shot<br>pitch deck, page 4</span>
         </div>
 
         <div>
-          <p class="eyebrow">Built by an athlete who figured it out the hard way</p>
-          <h2 class="headline-lg mb-xl">
+          <p class="eyebrow reveal">Built by an athlete who figured it out the hard way</p>
+          <h2 class="headline-lg mb-xl reveal reveal-d1">
             Four years.<br>
             Four titles.<br>
             5M followers.
           </h2>
 
-          <p class="body-lg mb-md">
+          <p class="body-lg mb-md reveal reveal-d2">
             Four years at Stanford. Four NCAA titles. 5M followers built between training sessions and finals week.
           </p>
-          <p class="body-md mb-xl">
+          <p class="body-md mb-xl reveal reveal-d2">
             Ian didn't have a team behind him — he built the system himself, while competing at the highest level in the country. Then he built Haymaker so no athlete has to start from scratch again.
           </p>
 
-          <div class="stat-grid-2" style="margin-bottom: 32px; max-width: 380px;">
+          <div class="stat-grid-2 reveal reveal-d3" style="margin-bottom: 32px; max-width: 380px;">
             <div class="stat-card">
               <div class="stat-number-sm">5M</div>
               <div class="stat-label">Followers built while competing</div>
@@ -119,12 +119,12 @@
             </div>
           </div>
 
-          <blockquote style="margin-bottom: 32px;">
+          <blockquote class="reveal reveal-d3" style="margin-bottom: 32px;">
             <p>"I know exactly what you don't have time for — because I didn't have time for it either. I built Haymaker so you don't have to figure it out the way I did."</p>
             <cite>Ian Gunther — Co-Founder, Haymaker</cite>
           </blockquote>
 
-          <a href="about" class="btn btn-ghost btn-lg">His story →</a>
+          <a href="about" class="btn btn-ghost btn-lg reveal reveal-d4">His story →</a>
         </div>
 
       </div>
@@ -139,7 +139,7 @@
   <section class="section" id="how-it-works">
     <div class="container">
 
-      <div style="margin-bottom: 64px;">
+      <div class="reveal" style="margin-bottom: 64px;">
         <p class="eyebrow">The system</p>
         <h2 class="headline-lg">
           Here's how<br>it works.
@@ -148,7 +148,7 @@
 
       <div style="max-width: 760px; display: flex; flex-direction: column; gap: 48px;">
 
-        <div class="step">
+        <div class="step reveal">
           <div class="step-number">01</div>
           <div>
             <div class="step-title">We show up.</div>
@@ -156,7 +156,7 @@
           </div>
         </div>
 
-        <div class="step">
+        <div class="step reveal reveal-d1">
           <div class="step-number">02</div>
           <div>
             <div class="step-title">We handle everything after.</div>
@@ -164,7 +164,7 @@
           </div>
         </div>
 
-        <div class="step">
+        <div class="step reveal reveal-d2">
           <div class="step-number">03</div>
           <div>
             <div class="step-title">You approve in the app.</div>
@@ -172,7 +172,7 @@
           </div>
         </div>
 
-        <div class="step">
+        <div class="step reveal reveal-d3">
           <div class="step-number">04</div>
           <div>
             <div class="step-title">Deals come to you.</div>
@@ -182,9 +182,36 @@
 
       </div>
 
-      <p class="body-lg mt-2xl" style="max-width: 560px; color: var(--hm-text-tertiary);">
+      <p class="body-lg mt-2xl reveal" style="max-width: 560px; color: var(--hm-text-tertiary);">
         You spend under an hour a week. Everything else is us.
       </p>
+
+      <!-- Who Does What Diagram -->
+      <div class="wdw-grid reveal">
+        <div class="wdw-col wdw-you">
+          <p class="wdw-head">You</p>
+          <ul class="wdw-items">
+            <li class="wdw-item">Compete</li>
+            <li class="wdw-item">Share raw clips</li>
+            <li class="wdw-item">Approve posts</li>
+          </ul>
+          <div class="wdw-foot">~1 hour per week</div>
+        </div>
+        <div class="wdw-col wdw-haymaker">
+          <p class="wdw-head">Haymaker</p>
+          <ul class="wdw-items">
+            <li class="wdw-item">Crew &amp; filming</li>
+            <li class="wdw-item">Editing</li>
+            <li class="wdw-item">Captions &amp; formatting</li>
+            <li class="wdw-item">Platform strategy</li>
+            <li class="wdw-item">Scheduling &amp; posting</li>
+            <li class="wdw-item">Brand deal sourcing</li>
+            <li class="wdw-item">Contract negotiation</li>
+            <li class="wdw-item">Performance reporting</li>
+          </ul>
+          <div class="wdw-foot">Everything else</div>
+        </div>
+      </div>
 
     </div>
   </section>
@@ -198,7 +225,7 @@
     <div class="container">
       <div class="grid-2">
 
-        <div>
+        <div class="reveal">
           <p class="eyebrow">The reality</p>
           <h2 class="headline-lg mb-xl">
             NIL is real.<br>
@@ -208,7 +235,7 @@
           </h2>
         </div>
 
-        <div style="padding-top: 48px;">
+        <div class="reveal reveal-d1" style="padding-top: 48px;">
           <p class="body-lg mb-lg">
             Not because they weren't good enough. Not because brands didn't want them. Because building the following that unlocks those deals takes hundreds of hours nobody in season actually has.
           </p>
@@ -216,20 +243,37 @@
             Ian had those hours because he was obsessed. He knows most athletes aren't going to do it that way. So he built the system that does it for you.
           </p>
 
-          <div class="stat-grid-3">
-            <div class="stat-card">
-              <div class="stat-number">30+</div>
-              <div class="stat-label">Hours/week training</div>
+          <!-- Time bar diagram -->
+          <div class="time-bars">
+            <div class="time-bar-row">
+              <div class="time-bar-meta">
+                <span class="time-bar-label">Training &amp; sport</span>
+                <span class="time-bar-value">30+ hrs / week</span>
+              </div>
+              <div class="time-bar-track">
+                <div class="time-bar-fill time-bar-fill-gray" style="--bar-w: 74%"></div>
+              </div>
             </div>
-            <div class="stat-card">
-              <div class="stat-number red">10–15</div>
-              <div class="stat-label">Hours to build content that performs</div>
+            <div class="time-bar-row">
+              <div class="time-bar-meta">
+                <span class="time-bar-label">Content that performs</span>
+                <span class="time-bar-value">10–15 hrs needed</span>
+              </div>
+              <div class="time-bar-track">
+                <div class="time-bar-fill time-bar-fill-red" style="--bar-w: 33%"></div>
+              </div>
             </div>
-            <div class="stat-card">
-              <div class="stat-number">0</div>
-              <div class="stat-label">Hours left for both</div>
+            <div class="time-bar-row">
+              <div class="time-bar-meta">
+                <span class="time-bar-label">What remains</span>
+                <span class="time-bar-value">≈ 0</span>
+              </div>
+              <div class="time-bar-track">
+                <div class="time-bar-fill time-bar-fill-dim"></div>
+              </div>
             </div>
           </div>
+
         </div>
 
       </div>
@@ -244,7 +288,7 @@
   <section class="section" id="athletes">
     <div class="container">
 
-      <div style="max-width: 760px; margin-bottom: 64px;">
+      <div class="reveal" style="max-width: 760px; margin-bottom: 64px;">
         <p class="eyebrow">What this builds</p>
         <h2 class="headline-lg mb-xl">
           You put in the work<br>
@@ -258,19 +302,19 @@
 
       <div class="grid-3 mb-2xl">
 
-        <div class="card">
+        <div class="card reveal">
           <p class="eyebrow" style="margin-bottom: 10px; color: var(--hm-red);">A following that's real</p>
           <h3 style="font-family: var(--font-ui); font-size: 22px; font-weight: 500; color: var(--hm-text-primary); margin-bottom: 16px; line-height: 1.2;">Built because<br>you competed.</h3>
           <p class="body-sm">A following that exists because you showed up every day — not because you went viral once. An audience that compounds over your entire career.</p>
         </div>
 
-        <div class="card">
+        <div class="card reveal reveal-d1">
           <p class="eyebrow" style="margin-bottom: 10px; color: var(--hm-red);">Brand relationships</p>
           <h3 style="font-family: var(--font-ui); font-size: 22px; font-weight: 500; color: var(--hm-text-primary); margin-bottom: 16px; line-height: 1.2;">Deals that came<br>through you.</h3>
           <p class="body-sm">Brand relationships that came because your audience is real and your voice is consistent. Negotiated by Haymaker, on your terms.</p>
         </div>
 
-        <div class="card">
+        <div class="card reveal reveal-d2">
           <p class="eyebrow" style="margin-bottom: 10px; color: var(--hm-red);">A name that lasts</p>
           <h3 style="font-family: var(--font-ui); font-size: 22px; font-weight: 500; color: var(--hm-text-primary); margin-bottom: 16px; line-height: 1.2;">While you play.<br>After you stop.</h3>
           <p class="body-sm">A name that means something while you're playing — and long after. The career ends. What you built doesn't have to.</p>
@@ -278,7 +322,7 @@
 
       </div>
 
-      <div style="display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap;">
+      <div class="reveal" style="display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap;">
         <p class="body-lg" style="flex: 1; min-width: 280px; max-width: 520px;">
           The only requirement is that you're a college athlete who's serious about building something. We'll handle the rest.
         </p>
@@ -297,20 +341,20 @@
     <div class="container">
       <div style="max-width: 680px; margin: 0 auto;">
 
-        <h2 class="headline-display mb-xl">
+        <h2 class="headline-display mb-xl reveal">
           Your sport is<br>
           already worth<br>
           watching.
         </h2>
 
-        <p class="body-lg mb-md">
+        <p class="body-lg mb-md reveal reveal-d1">
           NIL changed the rules. Most athletes run out of eligibility before they figure out how to use it. Haymaker is the infrastructure that changes that — available now, while you're still competing.
         </p>
-        <p style="font-family: var(--font-body); font-size: 18px; font-weight: 500; color: var(--hm-text-primary); margin-bottom: 48px;">
+        <p class="reveal reveal-d2" style="font-family: var(--font-body); font-size: 18px; font-weight: 500; color: var(--hm-text-primary); margin-bottom: 48px;">
           Not after graduation. Not after surgery. Now.
         </p>
 
-        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <div class="reveal reveal-d3" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
           <!-- REPLACE: Update href with your actual application form URL -->
           <a href="#" class="btn btn-primary btn-lg">Apply now →</a>
           <a href="mailto:hello@haymaker.co" class="btn btn-ghost btn-lg">Questions? Talk to us →</a>
@@ -353,10 +397,11 @@
       </div>
       <div class="footer-bottom">
         <p class="footer-legal">© 2026 Haymaker. All rights reserved.</p>
-        <p class="footer-legal"><a href="#" style="color: var(--hm-text-muted); transition: color 0.15s ease;" onmouseover="this.style.color='#888'" onmouseout="this.style.color='#555'">Privacy</a></p>
+        <p class="footer-legal"><a href="#" style="color: var(--hm-text-muted); transition: color 0.15s ease;" onmouseover="this.style.color='#999'" onmouseout="this.style.color=''">Privacy</a></p>
       </div>
     </div>
   </footer>
 
+  <script src="main.js"></script>
 </body>
 </html>
