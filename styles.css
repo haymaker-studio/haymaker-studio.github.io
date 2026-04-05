@@ -710,6 +710,10 @@ blockquote cite {
     --section-pad-v: 72px;
   }
 
+  .nav-links {
+    gap: 24px;
+  }
+
   .grid-2,
   .grid-2-center {
     grid-template-columns: 1fr;
