@@ -170,7 +170,7 @@ a {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 40px;
   list-style: none;
 }
 
@@ -190,8 +190,9 @@ a {
   font-weight: 500 !important;
   color: var(--hm-white) !important;
   background: var(--hm-red);
-  padding: 7px 16px !important;
+  padding: 7px 18px !important;
   border-radius: 6px;
+  margin-left: 8px;
   transition: background 0.15s ease !important;
 }
 
@@ -392,19 +393,19 @@ a {
 .proof-bar {
   border-top: 0.5px solid var(--hm-surface-4);
   border-bottom: 0.5px solid var(--hm-surface-4);
-  padding: 18px 0;
+  padding: 22px 0;
 }
 
 .proof-bar-inner {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 28px;
   flex-wrap: wrap;
 }
 
 .proof-item {
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 400;
   color: var(--hm-text-muted);
   letter-spacing: 0.04em;
@@ -412,7 +413,7 @@ a {
 
 .proof-dot {
   color: var(--hm-surface-3);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 /* ============================================
