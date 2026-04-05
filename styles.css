@@ -142,6 +142,12 @@ a {
   height: var(--nav-height);
   background: var(--hm-black);
   border-bottom: 0.5px solid var(--hm-surface-4);
+}
+
+/* Container inside nav must fill full width so space-between works correctly */
+.nav > .container {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
 }
@@ -151,6 +157,7 @@ a {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  flex: 1;
 }
 
 .nav-logo {
