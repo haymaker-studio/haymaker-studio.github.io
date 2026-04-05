@@ -687,6 +687,11 @@ blockquote cite {
   white-space: nowrap;
 }
 
+/* Responsive line-break helper — visible only on mobile */
+.br-mobile {
+  display: none;
+}
+
 /* ============================================
    Mobile Nav CTA (hidden on desktop, shown on mobile)
    ============================================ */
@@ -729,6 +734,13 @@ blockquote cite {
   :root {
     --container-pad: 20px;
     --section-pad-v: 56px;
+  }
+
+  /* Responsive line-break: show on mobile */
+  .br-mobile {
+    display: block;
+    line-height: 0;
+    content: '';
   }
 
   /* Nav — hide links, show Apply CTA */
