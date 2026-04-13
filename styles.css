@@ -740,6 +740,11 @@ blockquote cite {
     --section-pad-v: 56px;
   }
 
+  .hero-main {
+    padding-top: calc(var(--nav-height) + 32px) !important;
+    padding-bottom: 64px !important;
+  }
+
   /* Responsive line-break: show on mobile */
   .br-mobile {
     display: block;
