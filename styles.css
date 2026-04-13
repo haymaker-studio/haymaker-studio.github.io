@@ -693,6 +693,19 @@ blockquote cite {
 }
 
 /* ============================================
+   Hero body — constrained on desktop, full-width on tablet/mobile
+   ============================================ */
+.hero-body {
+  max-width: 560px;
+}
+
+@media (max-width: 960px) {
+  .hero-body {
+    max-width: 100%;
+  }
+}
+
+/* ============================================
    Mobile Nav CTA (hidden on desktop, shown on mobile)
    ============================================ */
 .nav-mobile-cta {
@@ -738,6 +751,11 @@ blockquote cite {
   :root {
     --container-pad: 20px;
     --section-pad-v: 56px;
+  }
+
+  .hero-main {
+    padding-top: calc(var(--nav-height) + 32px) !important;
+    padding-bottom: 64px !important;
   }
 
   /* Responsive line-break: show on mobile */
