@@ -693,16 +693,10 @@ blockquote cite {
 }
 
 /* ============================================
-   Hero body — constrained on desktop, full-width on tablet/mobile
+   Hero body — headline + body as a column, constrained to ~60% on desktop
    ============================================ */
 .hero-body {
-  max-width: 560px;
-}
-
-@media (max-width: 960px) {
-  .hero-body {
-    max-width: 100%;
-  }
+  max-width: 760px;
 }
 
 /* ============================================
@@ -755,7 +749,7 @@ blockquote cite {
 
   .hero-main {
     padding-top: calc(var(--nav-height) + 32px) !important;
-    padding-bottom: 64px !important;
+    padding-bottom: 72px !important;
   }
 
   /* Responsive line-break: show on mobile */
