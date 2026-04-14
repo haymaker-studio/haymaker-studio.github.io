@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For Athletes — Haymaker</title>
-  <meta name="description" content="Ian built 5M followers while competing at Stanford. Haymaker gives every college athlete the same system — filming, editing, posting, and brand deals in under an hour a week.">
+  <meta name="description" content="Your sport is already the content. Haymaker turns it into a following, brand deals, and income — in under an hour a week.">
 
   <!-- Favicon -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -13,7 +13,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="For Athletes — Haymaker Studio">
-  <meta property="og:description" content="You did the work. We turn it into content. Apply for the next Haymaker cohort.">
+  <meta property="og:description" content="Your sport is already the content. We make sure people see it.">
   <meta property="og:image" content="/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -23,10 +23,227 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="For Athletes — Haymaker Studio">
-  <meta name="twitter:description" content="You did the work. We turn it into content. Apply for the next Haymaker cohort.">
+  <meta name="twitter:description" content="Your sport is already the content. We make sure people see it.">
   <meta name="twitter:image" content="/og.png">
 
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ── Athletes Hero ─────────────────────────────────────── */
+    .athletes-hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 80px;
+      overflow: hidden;
+    }
+
+    .hero-carousel {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    /* Placeholder: replace with athlete action photos when confirmed */
+    /* Add slides: <div class="hero-slide" style="background-image: url('images/mars.jpg');"></div> */
+    .hero-slide-placeholder {
+      background: linear-gradient(160deg, #1C1C1C 0%, #111111 50%, #0E0E0E 100%);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(17, 17, 17, 0.92) 0%,
+        rgba(17, 17, 17, 0.55) 40%,
+        rgba(17, 17, 17, 0.25) 100%
+      );
+      z-index: 1;
+    }
+
+    .athletes-hero .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .athletes-hero-content {
+      max-width: 780px;
+      padding-top: calc(var(--nav-height) + 48px);
+    }
+
+    @media (max-width: 640px) {
+      .athletes-hero {
+        padding-bottom: 56px;
+      }
+      .athletes-hero-content {
+        padding-top: calc(var(--nav-height) + 32px);
+      }
+    }
+
+    /* ── Persona Cards ─────────────────────────────────────── */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .persona-card {
+      background: #1A1A1A;
+      border: 0.5px solid #2A2A2A;
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s ease;
+    }
+
+    .persona-card:hover {
+      border-color: var(--hm-red);
+    }
+
+    .persona-label {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--hm-text-muted);
+      margin-bottom: 16px;
+    }
+
+    .persona-headline {
+      font-family: var(--font-ui);
+      font-size: clamp(18px, 1.8vw, 22px);
+      font-weight: 500;
+      color: var(--hm-text-primary);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .persona-body {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--hm-text-secondary);
+      flex: 1;
+      margin-bottom: 24px;
+    }
+
+    .persona-stat {
+      padding-top: 20px;
+      border-top: 0.5px solid #2A2A2A;
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--hm-red);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 960px) {
+      .persona-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── Social Proof Stats Row ────────────────────────────── */
+    .stat-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 56px;
+      flex-wrap: wrap;
+    }
+
+    .stat-row-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .stat-row-number {
+      font-family: var(--font-ui);
+      font-size: clamp(40px, 5.5vw, 64px);
+      font-weight: 600;
+      color: var(--hm-text-primary);
+      line-height: 1;
+    }
+
+    .stat-row-label {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--hm-text-tertiary);
+      max-width: 160px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 640px) {
+      .stat-row {
+        gap: 32px;
+      }
+      .persona-grid {
+        gap: 12px;
+      }
+    }
+
+    /* ── Athlete Quote ─────────────────────────────────────── */
+    .quote-block {
+      background: var(--hm-surface-1);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .quote-mark {
+      font-family: var(--font-display);
+      font-size: 120px;
+      line-height: 0.6;
+      color: var(--hm-red);
+      display: block;
+      margin-bottom: 32px;
+      user-select: none;
+    }
+
+    .quote-text {
+      font-family: var(--font-ui);
+      font-size: clamp(20px, 2.8vw, 30px);
+      font-weight: 400;
+      color: var(--hm-text-secondary);
+      line-height: 1.45;
+      max-width: 780px;
+      margin: 0 auto 28px;
+    }
+
+    .quote-attribution {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--hm-text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .quote-block {
+        padding: 56px 0;
+      }
+      .quote-mark {
+        font-size: 80px;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -53,15 +270,26 @@
   <!-- ==========================================
        HERO
        ========================================== -->
-  <section class="page-hero">
+  <section class="athletes-hero">
+    <!-- Photo carousel — add athlete action shots (Mars, Riley, Rubin, Paul) when confirmed.
+         Each slide: <div class="hero-slide" style="background-image: url('images/mars.jpg');"></div>
+         Placeholder dark gradient runs until photos are confirmed. -->
+    <div class="hero-carousel" id="heroCarousel">
+      <div class="hero-slide hero-slide-placeholder active"></div>
+    </div>
+    <div class="hero-overlay"></div>
+
     <div class="container">
-      <div style="max-width: 760px;">
-        <p class="eyebrow reveal">For Athletes</p>
-        <h1 class="headline-display mb-xl reveal reveal-d1">
-          A full studio behind you.<br>Under an hour from you.
+      <div class="athletes-hero-content">
+        <p class="eyebrow reveal" style="color: var(--hm-text-tertiary);">For college athletes.</p>
+        <h1 class="headline-display mb-lg reveal reveal-d1">
+          Your sport is already<br>the content.<br><span class="red">We make sure<br>people see it.</span>
         </h1>
-        <p class="body-lg mb-xl reveal reveal-d2" style="max-width: 560px;">
-          Filming at your practices. Professional editing and posting. Brand deals sourced and delivered. You stay focused on your sport — we handle everything else.
+        <p class="body-lg mb-md reveal reveal-d2" style="max-width: 560px; color: var(--hm-text-secondary);">
+          You've put in the work. The footage exists. The story is already there. What's missing is the system to turn it into a following, brand deals, and income — without taking time away from the sport.
+        </p>
+        <p class="body-md mb-xl reveal reveal-d2" style="color: var(--hm-text-tertiary);">
+          That's what Haymaker is.
         </p>
         <a href="https://forms.gle/S9wnY3Ffvu5MfXEEA" class="btn btn-primary btn-lg reveal reveal-d3">Apply now →</a>
       </div>
@@ -71,45 +299,50 @@
   <hr class="divider">
 
   <!-- ==========================================
-       IAN'S PROOF
+       THE ASK
        ========================================== -->
-  <section class="section" id="ian">
+  <section class="section" id="the-ask">
     <div class="container">
-      <div class="grid-2-center">
 
-        <!-- LEFT: photo + stats -->
-        <div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-            <div class="stat-card reveal">
-              <div class="stat-number-sm">2M</div>
-              <div class="stat-label">TikTok</div>
-            </div>
-            <div class="stat-card reveal reveal-d1">
-              <div class="stat-number-sm">1.8M</div>
-              <div class="stat-label">Instagram</div>
-            </div>
-            <div class="stat-card reveal reveal-d2" style="grid-column: span 2; border-color: #3A1A1A;">
-              <div class="stat-number-sm red">5M</div>
-              <div class="stat-label">Combined — built while competing at Stanford</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT: copy -->
-        <div>
-          <p class="eyebrow reveal">Built by an athlete who did it the hard way</p>
-          <h2 class="headline-lg mb-xl reveal reveal-d1">
-            Ian built 5M followers<br>while competing<br>full-time at Stanford.
-          </h2>
-
-          <p class="body-md mb-xl reveal reveal-d2">
-            Four NCAA championships, seven All-American honors, and a content career that started before graduation. He spent two years figuring out the system. Haymaker is that system, available to you from day one.
-          </p>
-
-          <a href="about" class="btn btn-ghost reveal reveal-d3">See Ian's full story →</a>
-        </div>
-
+      <div class="mb-xl reveal" style="max-width: 680px;">
+        <h2 class="headline-display">Under an hour a week.</h2>
+        <p class="headline-md" style="color: var(--hm-text-tertiary); margin-top: 12px;">That's the whole ask.</p>
       </div>
+
+      <p class="body-lg mb-lg reveal reveal-d1" style="max-width: 640px; color: var(--hm-text-secondary);">
+        You compete. You share raw clips when you have them. You capture a moment here and there when we've shown you what to look for. You open the app and tap approve.
+      </p>
+      <p class="body-md mb-2xl reveal reveal-d1" style="max-width: 640px; color: var(--hm-text-tertiary);">
+        Everything else — filming, editing, platform strategy, brand deal sourcing, negotiation, production — is Haymaker.
+      </p>
+
+      <!-- Who Does What -->
+      <div class="wdw-grid reveal reveal-d2">
+        <div class="wdw-col wdw-you">
+          <p class="wdw-head">You</p>
+          <ul class="wdw-items">
+            <li class="wdw-item">Compete</li>
+            <li class="wdw-item">Share raw clips</li>
+            <li class="wdw-item">Capture lifestyle moments</li>
+            <li class="wdw-item">Review content</li>
+          </ul>
+          <div class="wdw-foot">~1 hour per week</div>
+        </div>
+        <div class="wdw-col wdw-haymaker">
+          <p class="wdw-head">Haymaker</p>
+          <ul class="wdw-items">
+            <li class="wdw-item">Crew &amp; filming</li>
+            <li class="wdw-item">Archive activation</li>
+            <li class="wdw-item">Editing &amp; production</li>
+            <li class="wdw-item">Storytelling coaching</li>
+            <li class="wdw-item">Platform strategy</li>
+            <li class="wdw-item">Brand deal sourcing &amp; negotiation</li>
+            <li class="wdw-item">Performance reporting</li>
+          </ul>
+          <div class="wdw-foot">Everything else</div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -123,29 +356,24 @@
 
       <div class="mb-2xl reveal">
         <p class="eyebrow">What you get</p>
-        <h2 class="headline-lg">
-          Built to last<br>beyond eligibility.
-        </h2>
+        <h2 class="headline-lg">What actually changes.</h2>
       </div>
 
       <div class="grid-3">
 
         <div class="card reveal">
-          <p class="eyebrow" style="margin-bottom: 12px; color: var(--hm-red);">A following that compounds</p>
-          <h3 style="font-family: var(--font-ui); font-size: 22px; font-weight: 500; color: var(--hm-text-primary); margin: 0 0 16px; line-height: 1.25;">Consistent content builds audiences that keep growing.</h3>
-          <p class="body-sm">Every week of posting builds on the last. Six months in, you have an audience. A year in, you have a platform. The athletes who start earliest go the furthest — and you're starting with a full production team behind you.</p>
+          <h3 style="font-family: var(--font-ui); font-size: 22px; font-weight: 500; color: var(--hm-text-primary); margin: 0 0 16px; line-height: 1.25;">A real following</h3>
+          <p class="body-sm" style="color: var(--hm-text-secondary);">Built systematically, every week, from your sport and your story. Not follower-bought, not viral luck — compounding audience built on consistency.</p>
         </div>
 
         <div class="card reveal reveal-d1">
-          <p class="eyebrow" style="margin-bottom: 12px; color: var(--hm-red);">Brand deals that find you</p>
-          <h3 style="font-family: var(--font-ui); font-size: 22px; font-weight: 500; color: var(--hm-text-primary); margin: 0 0 16px; line-height: 1.25;">Companies pay you. We handle the sourcing and terms.</h3>
-          <p class="body-sm">We bring deals to the app — terms included. You say yes, no, or negotiate. No cold outreach. No guesswork on what you're worth.</p>
+          <h3 style="font-family: var(--font-ui); font-size: 22px; font-weight: 500; color: var(--hm-text-primary); margin: 0 0 16px; line-height: 1.25;">Brand deals</h3>
+          <p class="body-sm" style="color: var(--hm-text-secondary);">Companies pay athletes for sponsored posts. The athletes who have audiences get the deals. We build the audience, then bring the deals to your app.</p>
         </div>
 
         <div class="card reveal reveal-d2">
-          <p class="eyebrow" style="margin-bottom: 12px; color: var(--hm-red);">A platform beyond eligibility</p>
-          <h3 style="font-family: var(--font-ui); font-size: 22px; font-weight: 500; color: var(--hm-text-primary); margin: 0 0 16px; line-height: 1.25;">Your sport ends. The following you built doesn't.</h3>
-          <p class="body-sm">Athletes who build real audiences turn them into careers. Not because they were lucky — because they started while the window was open.</p>
+          <h3 style="font-family: var(--font-ui); font-size: 22px; font-weight: 500; color: var(--hm-text-primary); margin: 0 0 16px; line-height: 1.25;">Income while you compete</h3>
+          <p class="body-sm" style="color: var(--hm-text-secondary);">Not after graduation. Not when you go pro. While you're still in it — because that's when the access and the story are at their peak.</p>
         </div>
 
       </div>
@@ -156,137 +384,95 @@
   <hr class="divider">
 
   <!-- ==========================================
-       WHY NOW MATTERS
+       PERSONAS
        ========================================== -->
   <section class="section">
     <div class="container">
 
-      <div class="mb-2xl reveal">
-        <p class="eyebrow">Why now</p>
-        <h2 class="headline-lg">
-          The window is open.<br>Most athletes<br>don't use it.
-        </h2>
+      <div class="mb-lg reveal">
+        <p class="eyebrow">Your situation</p>
+        <h2 class="headline-lg">Every athlete's situation<br>is different.</h2>
       </div>
-
-      <div>
-
-        <div class="reveal" style="padding: 40px 0; border-top: 0.5px solid var(--hm-surface-4);">
-          <div class="grid-2">
-            <div>
-              <p style="font-family: var(--font-ui); font-size: 13px; font-weight: 500; color: var(--hm-red); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px;">01</p>
-              <h3 class="headline-md">The window<br>is built for this.</h3>
-            </div>
-            <div style="padding-top: 8px;">
-              <p class="body-md">You're competing at the highest level of your sport right now. You have access to facilities, competition footage, training content, and a story that's actively unfolding. That combination doesn't exist after graduation. This is the window.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal" style="padding: 40px 0; border-top: 0.5px solid var(--hm-surface-4); border-bottom: 0.5px solid var(--hm-surface-4);">
-          <div class="grid-2">
-            <div>
-              <p style="font-family: var(--font-ui); font-size: 13px; font-weight: 500; color: var(--hm-red); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px;">02</p>
-              <h3 class="headline-md">Early matters<br>more than perfect.</h3>
-            </div>
-            <div style="padding-top: 8px;">
-              <p class="body-md">You don't need a content strategy. You don't need to learn editing. You don't need 10K followers to start getting deals. You need to start while the raw material — your sport, your daily life — is still happening. Everything else is our job.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ==========================================
-       YOUR NEW REALITY
-       ========================================== -->
-  <section class="section" id="how-it-works">
-    <div class="container">
-
-      <div class="mb-2xl reveal">
-        <p class="eyebrow">Your new reality</p>
-        <h2 class="headline-lg">
-          Here's what changes —<br>and what doesn't.
-        </h2>
-      </div>
-
-      <div style="max-width: 760px; display: flex; flex-direction: column; gap: 48px;">
-
-        <div class="step reveal">
-          <div class="step-number">01</div>
-          <div>
-            <div class="step-title">No routine changes.</div>
-            <p class="step-body">We film your practices and competitions. You don't coordinate schedules, learn editing, or plan content. You train like you always do.</p>
-          </div>
-        </div>
-
-        <div class="step reveal reveal-d1">
-          <div class="step-number">02</div>
-          <div>
-            <div class="step-title">Your archive activates.</div>
-            <p class="step-body">Years of clips in your camera roll become months of content. Training sessions, competition moments, drills you've been proud of — nothing goes to waste.</p>
-          </div>
-        </div>
-
-        <div class="step reveal reveal-d1">
-          <div class="step-number">03</div>
-          <div>
-            <div class="step-title">Weekly content, zero effort.</div>
-            <p class="step-body">Consistent posts across all platforms, every week. Built from your training, your moments, your story. Championship week or injury recovery — the machine runs.</p>
-          </div>
-        </div>
-
-        <div class="step reveal reveal-d2">
-          <div class="step-number">04</div>
-          <div>
-            <div class="step-title">You stay in control.</div>
-            <p class="step-body">Every piece of content gets your approval first. Open the Haymaker app, see what we produced, tap approve or request changes. Your voice, your call.</p>
-          </div>
-        </div>
-
-        <div class="step reveal reveal-d2">
-          <div class="step-number">05</div>
-          <div>
-            <div class="step-title">Opportunities arrive ready.</div>
-            <p class="step-body">Brand deals come to your app with terms included. Accept, decline, or negotiate. We source, vet, and deliver — you decide.</p>
-          </div>
-        </div>
-
-      </div>
-
-      <p class="body-lg reveal" style="max-width: 560px; color: var(--hm-text-tertiary); margin-top: 64px;">
-        Under an hour a week total.
+      <p class="body-lg reveal reveal-d1" style="max-width: 640px; color: var(--hm-text-secondary);">
+        The sport, the timeline, the goal after graduation. Haymaker works across all of it.
       </p>
 
+      <div class="persona-grid">
+
+        <!-- Persona 01 -->
+        <div class="persona-card reveal">
+          <p class="persona-label">For athletes building beyond the sport.</p>
+          <h3 class="persona-headline">The following you build while competing becomes the career that follows it.</h3>
+          <p class="persona-body">Ian built 5M followers while he was a full-time NCAA gymnast. The brand deals, partnerships, and platform that came after — all of it came from the audience he built while he was still competing.<br><br>Most athletes have everything it takes to do the same thing. The sport. The story. The access to moments people actually want to watch. What they don't have is the system.<br><br>Haymaker is the system.</p>
+          <div class="persona-stat">5M followers. Built while competing. Not after.</div>
+        </div>
+
+        <!-- Persona 02 -->
+        <div class="persona-card reveal reveal-d1">
+          <p class="persona-label">For athletes who want income now.</p>
+          <h3 class="persona-headline">You don't have to wait until graduation to earn from your sport.</h3>
+          <p class="persona-body">Companies pay athletes for sponsored posts — and the athletes who have an audience get the deals. Haymaker builds that audience systematically, then brings the deals straight to your app.<br><br>You see the terms. You say yes or no. We handle everything else.<br><br>You compete. The income builds alongside it.</p>
+          <div class="persona-stat">Brand deals delivered to the app. Terms included. You decide.</div>
+        </div>
+
+        <!-- Persona 03 -->
+        <div class="persona-card reveal">
+          <p class="persona-label">For athletes with a draft on the horizon.</p>
+          <h3 class="persona-headline">Show up to the pros with an audience already built.</h3>
+          <p class="persona-body">Teams and brands are watching before you sign. An athlete who arrives with 200K engaged followers is a different asset than one starting from zero.<br><br>Haymaker builds that before the draft — so when the moment comes, you're not starting over.</p>
+          <div class="persona-stat">The audience you have when you go pro follows you in.</div>
+        </div>
+
+        <!-- Persona 04 -->
+        <div class="persona-card reveal reveal-d1">
+          <p class="persona-label">For athletes going into tech, finance, medicine, anything.</p>
+          <h3 class="persona-headline">The platform you build while competing travels into whatever comes next.</h3>
+          <p class="persona-body">The sport ends. The audience doesn't have to.<br><br>Athletes who leave college with a real following have a network, a credibility signal, and a personal brand that works in any room they walk into. We build it while you're still competing — when the access and the story are at their peak.</p>
+          <div class="persona-stat">Built while competing. Compounds long after.</div>
+        </div>
+
+      </div>
+
     </div>
   </section>
 
   <hr class="divider">
 
   <!-- ==========================================
-       ATHLETE RESULTS (HONEST)
+       HOW IT WORKS — BRIEF
        ========================================== -->
   <section class="section">
     <div class="container">
 
       <div class="mb-2xl reveal">
-        <p class="eyebrow">From our first athletes</p>
-        <h2 class="headline-lg">
-          We're in year one.<br>Here's what<br>we're building.
-        </h2>
+        <p class="eyebrow">How it works</p>
+        <h2 class="headline-lg">Three sources.<br>One pipeline.</h2>
       </div>
 
-      <div style="max-width: 680px;">
-        <p class="body-lg mb-lg reveal">
-          Haymaker is working with its first cohort of athletes right now. We'll share their stories here as results come in — real names, real numbers, nothing manufactured.
-        </p>
-        <p class="body-md reveal reveal-d1" style="color: var(--hm-text-tertiary);">
-          The proof of concept is Ian's career: 5M followers built while competing full-time at Stanford, across four NCAA championship seasons. Haymaker is that system, available to you from day one — not two years in.
-        </p>
+      <div class="grid-3">
+
+        <div class="sources-callout reveal">
+          <div class="sources-num">①</div>
+          <div class="sources-title">We show up</div>
+          <p class="sources-body">Crew at your practices. Every week, in-season or out.</p>
+        </div>
+
+        <div class="sources-callout reveal reveal-d1">
+          <div class="sources-num">②</div>
+          <div class="sources-title">We activate your archive</div>
+          <p class="sources-body">Years of footage in your camera roll, turned into months of content.</p>
+        </div>
+
+        <div class="sources-callout reveal reveal-d2">
+          <div class="sources-num">③</div>
+          <div class="sources-title">We teach you what to capture</div>
+          <p class="sources-body">The life beyond the gym. Your story between sessions.</p>
+        </div>
+
+      </div>
+
+      <div class="reveal" style="margin-top: 48px;">
+        <a href="process" class="btn btn-ghost">See the full process →</a>
       </div>
 
     </div>
@@ -295,26 +481,80 @@
   <hr class="divider">
 
   <!-- ==========================================
-       APPLY NOW CTA
+       SOCIAL PROOF
+       ========================================== -->
+  <section class="section">
+    <div class="container">
+
+      <div class="mb-2xl reveal">
+        <h2 class="headline-lg">The results are real.</h2>
+      </div>
+
+      <div class="stat-row mb-2xl">
+        <div class="stat-row-item reveal">
+          <span class="stat-row-number">50M+</span>
+          <span class="stat-row-label">Views generated across athlete accounts</span>
+        </div>
+        <div class="stat-row-item reveal reveal-d1">
+          <span class="stat-row-number">30+</span>
+          <span class="stat-row-label">Athletes across every sport</span>
+        </div>
+        <div class="stat-row-item reveal reveal-d2">
+          <span class="stat-row-number">~1hr</span>
+          <span class="stat-row-label">Per week from each athlete</span>
+        </div>
+      </div>
+
+      <!-- Video thumbnails: add when assets confirmed -->
+      <!-- Format: 3-column grid, still frame + play overlay + view count bottom left
+           On click: inline play or lightbox — do not navigate away from page -->
+
+      <div class="logo-lockup reveal">
+        <span class="logo-badge">Stanford Athletics</span>
+        <span class="logo-badge">USAG</span>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ==========================================
+       ATHLETE QUOTE
+       Placeholder — needs real athlete quote before launch
+       Format: "[Quote]" — Name, Sport, School
+       ========================================== -->
+  <section class="quote-block">
+    <div class="container">
+      <span class="quote-mark reveal">&ldquo;</span>
+      <!-- Replace placeholder below with real athlete quote when confirmed -->
+      <p class="quote-text reveal reveal-d1">
+        Real athlete quote coming before launch.
+      </p>
+      <p class="quote-attribution reveal reveal-d2">— Name, Sport, School</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ==========================================
+       CLOSING CTA
        ========================================== -->
   <section class="section text-center" id="apply">
     <div class="container">
       <div style="max-width: 600px; margin: 0 auto;">
 
         <p class="eyebrow reveal">Now enrolling</p>
-        <h2 class="headline-display mb-xl reveal reveal-d1">
-          You did the work.<br>We turn it<br>into content.
-        </h2>
+        <h2 class="headline-display mb-xl reveal reveal-d1">Applications<br>are open.</h2>
 
-        <p class="body-lg mb-xl reveal reveal-d2">
-          A full studio behind you — filming, editing, posting, and brand deals — while you stay focused on your sport.
+        <p class="body-lg mb-xl reveal reveal-d2" style="color: var(--hm-text-secondary);">
+          If you're a college athlete who wants to build something real while you're still competing — this is the system. The window is open now.
         </p>
 
         <div class="reveal reveal-d3" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-          <a href="https://forms.gle/S9wnY3Ffvu5MfXEEA" class="btn btn-primary btn-lg">Apply today →</a>
+          <a href="https://forms.gle/S9wnY3Ffvu5MfXEEA" class="btn btn-primary btn-lg">Apply now →</a>
+          <a href="mailto:hello@haymaker-studio.com" class="btn btn-ghost btn-lg">Get in touch →</a>
         </div>
-
-        <p class="body-sm reveal reveal-d4" style="margin-top: 24px; color: var(--hm-text-tertiary);">Questions? <a href="mailto:hello@haymaker-studio.com" style="color: var(--hm-text-secondary);">hello@haymaker-studio.com</a></p>
 
       </div>
     </div>
@@ -334,7 +574,7 @@
           <p class="footer-col-title">Navigate</p>
           <ul class="footer-nav">
             <li><a href="/">Home</a></li>
-          <li><a href="/#how-it-works">How it works</a></li>
+            <li><a href="/#how-it-works">How it works</a></li>
             <li><a href="testimonials">For athletes</a></li>
             <li><a href="programs">For programs</a></li>
             <li><a href="about">About</a></li>
@@ -365,5 +605,19 @@
   </footer>
 
   <script src="main.js"></script>
+  <script>
+    // Hero carousel — crossfade every 4 seconds
+    // Only activates when multiple slides are present (placeholder is skipped)
+    (function () {
+      var slides = document.querySelectorAll('#heroCarousel .hero-slide');
+      if (slides.length < 2) return;
+      var current = 0;
+      setInterval(function () {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, 4000);
+    })();
+  </script>
 </body>
 </html>
