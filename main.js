@@ -54,10 +54,8 @@
     });
   }
 
-  // Expose so footer "Cookie settings" button can call it
   window.hmShowCookieBanner = showCookieBanner;
 
-  // Show on load if no consent stored yet
   if (!localStorage.getItem(COOKIE_KEY)) {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', showCookieBanner);
@@ -66,10 +64,156 @@
     }
   }
 
-  // ── Scroll reveals ──────────────────────────────────────────
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
+  // ── Page Transition — fade in on load ────────────────────────
+  var ptOverlay = document.getElementById('page-transition');
+  if (ptOverlay) {
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        ptOverlay.classList.add('pt-loaded');
+      });
+    });
+
+    // Intercept internal link clicks for fade-out transition
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a');
+      if (!link) return;
+      var href = link.getAttribute('href');
+      if (!href) return;
+      // Skip external, hash, mailto, tel links
+      if (
+        href.startsWith('http') ||
+        href.startsWith('mailto') ||
+        href.startsWith('tel') ||
+        href.startsWith('#') ||
+        link.target === '_blank'
+      ) return;
+      e.preventDefault();
+      ptOverlay.classList.remove('pt-loaded');
+      setTimeout(function () {
+        window.location.href = href;
+      }, 160);
+    });
+  }
+
+  // ── Scroll Progress Bar ──────────────────────────────────────
+  var progressBar = document.getElementById('scroll-progress');
+  if (progressBar) {
+    function updateProgress() {
+      var scrollTop = window.scrollY;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+      progressBar.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  // ── Custom Cursor ────────────────────────────────────────────
+  // Only on pointer:fine (non-touch) devices
+  if (window.matchMedia('(pointer: fine)').matches) {
+    var cursorDot = document.getElementById('cursor-dot');
+    if (cursorDot) {
+      var cx = -100, cy = -100;
+      document.addEventListener('mousemove', function (e) {
+        cx = e.clientX;
+        cy = e.clientY;
+        cursorDot.style.left = cx + 'px';
+        cursorDot.style.top  = cy + 'px';
+      });
+
+      var hoverTargets = 'a, button, [role="button"], input, textarea, select, label, .btn';
+      document.addEventListener('mouseover', function (e) {
+        if (e.target.closest(hoverTargets)) {
+          cursorDot.classList.add('cursor-hover');
+        }
+      });
+      document.addEventListener('mouseout', function (e) {
+        if (e.target.closest(hoverTargets)) {
+          cursorDot.classList.remove('cursor-hover');
+        }
+      });
+    }
+  }
+
+  // ── Nav scroll behavior (background + hide/show) ─────────────
+  var nav = document.querySelector('.nav');
+  if (nav) {
+    var lastScrollY = window.scrollY;
+    var ticking = false;
+
+    function handleNavScroll() {
+      var currentY = window.scrollY;
+
+      // Scrolled background
+      nav.classList.toggle('nav-scrolled', currentY > 56);
+
+      // Hide on scroll down (past 120px), show on scroll up
+      if (currentY > 120) {
+        if (currentY > lastScrollY + 4) {
+          nav.classList.add('nav-hidden');
+        } else if (currentY < lastScrollY - 4) {
+          nav.classList.remove('nav-hidden');
+        }
+      } else {
+        nav.classList.remove('nav-hidden');
+      }
+
+      lastScrollY = currentY;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(handleNavScroll);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    handleNavScroll();
+  }
+
+  // ── Mobile Menu ──────────────────────────────────────────────
+  var hamburger = document.querySelector('.nav-hamburger');
+  var mobileMenu = document.getElementById('mobile-menu');
+
+  if (hamburger && mobileMenu) {
+    function openMenu() {
+      hamburger.classList.add('is-open');
+      mobileMenu.classList.add('is-open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      hamburger.classList.remove('is-open');
+      mobileMenu.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', function () {
+      if (mobileMenu.classList.contains('is-open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    // Close on link click
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+  }
+
+  // ── Scroll Reveals ───────────────────────────────────────────
+  var revealObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           revealObserver.unobserve(entry.target);
@@ -79,22 +223,20 @@
     { threshold: 0.1, rootMargin: '0px 0px -32px 0px' }
   );
 
-  document.querySelectorAll('.reveal').forEach((el) => {
+  document.querySelectorAll('.reveal, .reveal-scale').forEach(function (el) {
     revealObserver.observe(el);
   });
 
-  // ── Time bar fill animations ────────────────────────────────
-  const timeBarsEl = document.querySelector('.time-bars');
+  // ── Time bar fill animations ─────────────────────────────────
+  var timeBarsEl = document.querySelector('.time-bars');
   if (timeBarsEl) {
-    const barObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+    var barObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            entry.target
-              .querySelectorAll('.time-bar-row')
-              .forEach((row, i) => {
-                setTimeout(() => row.classList.add('visible'), i * 200);
-              });
+            entry.target.querySelectorAll('.time-bar-row').forEach(function (row, i) {
+              setTimeout(function () { row.classList.add('visible'); }, i * 200);
+            });
             barObserver.unobserve(entry.target);
           }
         });
@@ -104,13 +246,68 @@
     barObserver.observe(timeBarsEl);
   }
 
-  // ── Nav scroll state ────────────────────────────────────────
-  const nav = document.querySelector('.nav');
-  if (nav) {
-    const onScroll = () => {
-      nav.classList.toggle('nav-scrolled', window.scrollY > 56);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+  // ── Proof Bar Ticker ─────────────────────────────────────────
+  var proofBarInner = document.querySelector('.proof-bar-inner');
+  if (proofBarInner) {
+    // Replace static inner with animated ticker
+    var items = proofBarInner.innerHTML;
+    var track = document.createElement('div');
+    track.className = 'proof-bar-track';
+
+    var set1 = document.createElement('div');
+    set1.className = 'proof-bar-set';
+    set1.innerHTML = items;
+
+    var set2 = document.createElement('div');
+    set2.className = 'proof-bar-set';
+    set2.setAttribute('aria-hidden', 'true');
+    set2.innerHTML = items;
+
+    track.appendChild(set1);
+    track.appendChild(set2);
+
+    var parent = proofBarInner.parentNode;
+    parent.replaceChild(track, proofBarInner);
   }
+
+  // ── Hero Headline Line Reveal ─────────────────────────────────
+  // Finds .hero-headline elements, wraps content in animated line spans
+  document.querySelectorAll('.hero-headline').forEach(function (el) {
+    // Collect child nodes (text and spans) into "lines" split by <br>
+    var nodes = Array.from(el.childNodes);
+    var lines = [];
+    var currentLine = [];
+
+    nodes.forEach(function (node) {
+      if (node.nodeName === 'BR') {
+        lines.push(currentLine);
+        currentLine = [];
+      } else {
+        currentLine.push(node);
+      }
+    });
+    if (currentLine.length) lines.push(currentLine);
+
+    // Rebuild the element with wrapped lines
+    el.innerHTML = '';
+    lines.forEach(function (lineNodes, i) {
+      var wrap = document.createElement('span');
+      wrap.className = 'hero-line-wrap';
+
+      var inner = document.createElement('span');
+      inner.className = 'hero-line-inner';
+      inner.style.transitionDelay = (i * 0.08) + 's';
+
+      lineNodes.forEach(function (n) { inner.appendChild(n.cloneNode(true)); });
+      wrap.appendChild(inner);
+      el.appendChild(wrap);
+    });
+
+    // Trigger animation after transition overlay fades (or immediately)
+    var delay = ptOverlay ? 180 : 50;
+    setTimeout(function () {
+      el.classList.add('hero-reveal-ready');
+    }, delay);
+  });
+
 })();

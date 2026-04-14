@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div id="page-transition"></div>
+  <div id="scroll-progress"></div>
+  <div id="cursor-dot" aria-hidden="true"></div>
 
   <!-- ==========================================
        NAVIGATION
@@ -25,6 +28,11 @@
           <li><a href="mailto:hello@haymaker-studio.com" class="nav-cta">Talk to us →</a></li>
         </ul>
         <a href="mailto:hello@haymaker-studio.com" class="btn btn-primary nav-mobile-cta">Talk to us →</a>
+        <button class="nav-hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
   </nav>
@@ -181,6 +189,18 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu">
+    <ul class="mobile-menu-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="process">Our Process</a></li>
+      <li><a href="testimonials">Athletes</a></li>
+      <li><a href="programs">Universities</a></li>
+      <li><a href="about">About</a></li>
+    </ul>
+    <a href="https://forms.gle/S9wnY3Ffvu5MfXEEA" class="mobile-menu-cta">Apply now →</a>
+  </div>
 
   <script src="main.js"></script>
 </body>
