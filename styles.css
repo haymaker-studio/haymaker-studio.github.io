@@ -1281,3 +1281,72 @@ blockquote cite {
     padding: 10px 12px;
   }
 }
+
+/* ============================================
+   Red Block Section
+   ============================================ */
+.section-red {
+  background: var(--hm-red);
+  padding: var(--section-pad-v) 0;
+}
+
+.section-red-headline {
+  font-family: var(--font-ui);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 600;
+  color: var(--hm-white);
+  line-height: 1.1;
+  margin-bottom: 32px;
+  max-width: 680px;
+}
+
+.section-red-body {
+  max-width: 560px;
+}
+
+.section-red-body p {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.section-red-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   Three Sources Callouts
+   ============================================ */
+.sources-callout {
+  padding: 28px 24px;
+  border: 0.5px solid var(--hm-surface-3);
+  border-radius: 12px;
+  background: var(--hm-surface-1);
+}
+
+.sources-num {
+  font-family: var(--font-ui);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--hm-red);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.sources-title {
+  font-family: var(--font-ui);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--hm-text-primary);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.sources-body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--hm-text-secondary);
+  line-height: 1.7;
+}
