@@ -24,7 +24,7 @@
   --hm-text-primary:   #FFFFFF;
   --hm-text-secondary: #D8D8D8;
   --hm-text-tertiary:  #999999;
-  --hm-text-muted:     #6A6A6A;
+  --hm-text-muted:     #7A7A7A;
   --hm-text-inactive:  #444444;
 
   /* Semantic */
@@ -910,20 +910,21 @@ blockquote cite {
 
 .wdw-you {
   border-right: 0.5px solid var(--hm-surface-3);
+  background: var(--hm-surface-1);
 }
 
 .wdw-haymaker {
-  background: var(--hm-surface-1);
+  background: var(--hm-surface-2);
 }
 
 .wdw-head {
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--hm-text-muted);
-  margin-bottom: 20px;
+  color: var(--hm-text-tertiary);
+  margin-bottom: 24px;
 }
 
 .wdw-haymaker .wdw-head {
@@ -966,13 +967,14 @@ blockquote cite {
   padding-top: 20px;
   border-top: 0.5px solid var(--hm-surface-3);
   font-family: var(--font-ui);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--hm-text-muted);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--hm-text-secondary);
 }
 
 .wdw-haymaker .wdw-foot {
   color: var(--hm-text-primary);
+  font-size: 18px;
 }
 
 @media (max-width: 640px) {
@@ -1280,4 +1282,111 @@ blockquote cite {
   .policy-table td {
     padding: 10px 12px;
   }
+}
+
+/* ============================================
+   Red Block Section
+   ============================================ */
+.section-red {
+  background: var(--hm-red);
+  padding: var(--section-pad-v) 0;
+}
+
+.section-red-headline {
+  font-family: var(--font-ui);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 600;
+  color: var(--hm-white);
+  line-height: 1.1;
+  margin-bottom: 32px;
+  max-width: 680px;
+}
+
+.section-red-body {
+  max-width: 560px;
+}
+
+.section-red-body p {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.section-red-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   Logo Lockup
+   ============================================ */
+.logo-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.logo-lockup-centered {
+  justify-content: center;
+}
+
+.logo-badge {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hm-text-tertiary);
+  border: 0.5px solid var(--hm-surface-3);
+  border-radius: 6px;
+  padding: 9px 18px;
+  background: var(--hm-surface-1);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .logo-lockup {
+    gap: 8px;
+  }
+  .logo-badge {
+    font-size: 11px;
+    padding: 8px 14px;
+  }
+}
+
+/* ============================================
+   Three Sources Callouts
+   ============================================ */
+.sources-callout {
+  padding: 28px 24px;
+  border: 0.5px solid var(--hm-surface-3);
+  border-radius: 12px;
+  background: var(--hm-surface-1);
+}
+
+.sources-num {
+  font-family: var(--font-ui);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--hm-red);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.sources-title {
+  font-family: var(--font-ui);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--hm-text-primary);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.sources-body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--hm-text-secondary);
+  line-height: 1.7;
 }
