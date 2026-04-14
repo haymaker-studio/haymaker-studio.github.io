@@ -29,6 +29,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div id="page-transition"></div>
+  <div id="scroll-progress"></div>
+  <div id="cursor-dot" aria-hidden="true"></div>
 
   <!-- ==========================================
        NAVIGATION
@@ -46,6 +49,11 @@
           <li><a href="https://forms.gle/S9wnY3Ffvu5MfXEEA" class="nav-cta">Apply now →</a></li>
         </ul>
         <a href="https://forms.gle/S9wnY3Ffvu5MfXEEA" class="btn btn-primary nav-mobile-cta">Apply →</a>
+        <button class="nav-hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
   </nav>
@@ -57,8 +65,8 @@
     <div class="container">
       <div class="hero-body">
         <p class="eyebrow mb-lg">The content studio for college athletes.</p>
-        <h1 class="headline-display mb-lg" style="font-size: clamp(40px, 7vw, 80px);">
-          You did the work.<br><span class="red">We make sure people see it.</span>
+        <h1 class="headline-display mb-lg hero-headline" style="font-size: clamp(40px, 7vw, 80px);">
+          You did the work.<br><span class="red">We make sure people <span style="text-decoration:none">see</span> it.</span>
         </h1>
         <p class="body-lg mb-xl" style="max-width: 560px;">
           Four years of eligibility. A camera roll full of training footage. And now a system that turns all of it into a real following, real brand deals, and real income — while you're still competing.
@@ -120,7 +128,7 @@
           <h2 class="headline-lg mb-xl reveal reveal-d1">
             Four years.<br>
             Four titles.<br>
-            5M followers.
+            <span class="red">5M</span> followers.
           </h2>
 
           <p class="body-lg mb-md reveal reveal-d2">
@@ -199,7 +207,7 @@
     <div class="container">
 
       <div class="reveal" style="margin-bottom: 48px;">
-        <h2 class="headline-md">Three sources. One pipeline.</h2>
+        <h2 class="headline-md">Three sources. One <span class="red">pipeline.</span></h2>
       </div>
 
       <div class="grid-3 reveal reveal-d1">
@@ -336,7 +344,7 @@
       <div style="max-width: 680px;">
         <p class="eyebrow reveal">Why it works.</p>
         <h2 class="headline-lg mb-xl reveal reveal-d1">
-          Consistency is the product.
+          Consistency is <span class="red">the product.</span>
         </h2>
         <p class="body-lg mb-lg reveal reveal-d2">
           Content strategies fail because they depend on athletes having good weeks.
@@ -360,7 +368,7 @@
     <div class="container">
       <div style="max-width: 680px;">
         <h2 class="headline-lg mb-xl reveal">
-          Brand deals are real.<br>Most athletes run out of eligibility before they land one.
+          Brand deals are real.<br>Most athletes run out of eligibility before they land <span class="red">one.</span>
         </h2>
         <p class="body-lg mb-lg reveal reveal-d1">
           Not because they weren't good enough. Not because brands didn't want them. Because building the following that unlocks those deals takes hundreds of hours nobody in season actually has.
@@ -477,6 +485,18 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu">
+    <ul class="mobile-menu-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="process">Our Process</a></li>
+      <li><a href="testimonials">Athletes</a></li>
+      <li><a href="programs">Universities</a></li>
+      <li><a href="about">About</a></li>
+    </ul>
+    <a href="https://forms.gle/S9wnY3Ffvu5MfXEEA" class="mobile-menu-cta">Apply now →</a>
+  </div>
 
   <script src="main.js"></script>
 </body>

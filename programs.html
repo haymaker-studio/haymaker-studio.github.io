@@ -29,6 +29,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div id="page-transition"></div>
+  <div id="scroll-progress"></div>
+  <div id="cursor-dot" aria-hidden="true"></div>
 
   <!-- ==========================================
        NAVIGATION
@@ -46,6 +49,11 @@
           <li><a href="https://forms.gle/S9wnY3Ffvu5MfXEEA" class="nav-cta">Apply now →</a></li>
         </ul>
         <a href="https://forms.gle/S9wnY3Ffvu5MfXEEA" class="btn btn-primary nav-mobile-cta">Apply →</a>
+        <button class="nav-hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
   </nav>
@@ -57,8 +65,8 @@
     <div class="container">
       <div style="max-width: 820px;">
         <p class="eyebrow">Programs</p>
-        <h1 class="headline-display mb-xl">
-          NIL infrastructure<br>that scales across<br>your roster.
+        <h1 class="headline-display mb-xl hero-headline">
+          NIL infrastructure<br>that <span class="red">scales</span> across<br>your roster.
         </h1>
         <p class="body-lg" style="max-width: 580px; margin-bottom: 40px;">
           Haymaker partners with athletic departments to give every athlete — not just the most visible ones — access to professional content production, platform growth, and brand deal sourcing. No additional burden on coaches or compliance staff.
@@ -116,7 +124,7 @@
 
         <div style="margin-bottom: 56px;">
           <p class="eyebrow">What you get</p>
-          <h2 class="headline-lg">Everything except<br>the time.</h2>
+          <h2 class="headline-lg">Everything except<br><span class="red">the time.</span></h2>
         </div>
 
         <div class="grid-3">
@@ -246,7 +254,7 @@
 
         <div style="margin-bottom: 56px;">
           <p class="eyebrow">What changes</p>
-          <h2 class="headline-lg">One system.<br>Every athlete.</h2>
+          <h2 class="headline-lg">One <span class="red">system.</span><br>Every athlete.</h2>
         </div>
 
         <div class="grid-3">
@@ -479,6 +487,18 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu">
+    <ul class="mobile-menu-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="process">Our Process</a></li>
+      <li><a href="testimonials">Athletes</a></li>
+      <li><a href="programs">Universities</a></li>
+      <li><a href="about">About</a></li>
+    </ul>
+    <a href="https://forms.gle/S9wnY3Ffvu5MfXEEA" class="mobile-menu-cta">Apply now →</a>
+  </div>
 
   <script src="main.js"></script>
 </body>

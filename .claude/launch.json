@@ -2,22 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "Haymaker (worktree)",
+      "name": "Haymaker Worktree",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "3001", "--directory", "/Users/kiraconte/Haymaker Website/.claude/worktrees/funny-swirles"],
-      "port": 3001
-    },
-    {
-      "name": "Haymaker (npx serve)",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "3000", "--directory", "/Users/kiraconte/Haymaker Website"],
-      "port": 3000
-    },
-    {
-      "name": "Haymaker (python http.server)",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "3000"],
-      "port": 3000
+      "runtimeArgs": ["-m", "http.server", "3002", "--directory", "/Users/kiraconte/Haymaker Website/.claude/worktrees/angry-tesla"],
+      "port": 3002
     }
   ]
 }

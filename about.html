@@ -29,6 +29,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div id="page-transition"></div>
+  <div id="scroll-progress"></div>
+  <div id="cursor-dot" aria-hidden="true"></div>
 
   <!-- ==========================================
        NAVIGATION
@@ -46,6 +49,11 @@
           <li><a href="https://forms.gle/S9wnY3Ffvu5MfXEEA" class="nav-cta">Apply now →</a></li>
         </ul>
         <a href="https://forms.gle/S9wnY3Ffvu5MfXEEA" class="btn btn-primary nav-mobile-cta">Apply →</a>
+        <button class="nav-hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
   </nav>
@@ -57,7 +65,7 @@
     <div class="container">
       <div style="max-width: 760px;">
         <p class="eyebrow">Our mission</p>
-        <h1 class="headline-display mb-xl">
+        <h1 class="headline-display mb-xl hero-headline">
           HAYMAKER
         </h1>
         <p class="body-lg" style="max-width: 600px;">
@@ -128,7 +136,7 @@
       <div style="margin-bottom: 64px;">
         <p class="eyebrow">What we believe</p>
         <h2 class="headline-lg">
-          Three things we believe<br>that shape everything<br>we build.
+          Three things we believe<br>that shape <span class="red">everything</span><br>we build.
         </h2>
       </div>
 
@@ -253,6 +261,18 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu">
+    <ul class="mobile-menu-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="process">Our Process</a></li>
+      <li><a href="testimonials">Athletes</a></li>
+      <li><a href="programs">Universities</a></li>
+      <li><a href="about">About</a></li>
+    </ul>
+    <a href="https://forms.gle/S9wnY3Ffvu5MfXEEA" class="mobile-menu-cta">Apply now →</a>
+  </div>
 
   <script src="main.js"></script>
 </body>
