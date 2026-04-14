@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Haymaker</title>
-  <meta name="description" content="Haymaker is built by athletes who figured it out — so you don't have to. Our mission: give every college athlete the infrastructure to build a brand that outlasts their playing career.">
+  <meta name="description" content="Built by an athlete who figured it out — so you don't have to. Ian Gunther built 5M followers while competing as a 4× NCAA Champion. Haymaker is the team he wished he'd had.">
 
   <!-- Favicon -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -13,7 +13,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="About — Haymaker Studio">
-  <meta property="og:description" content="Built by athletes who figured it out — so you don't have to.">
+  <meta property="og:description" content="Built by an athlete who figured it out — so you don't have to.">
   <meta property="og:image" content="/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -23,10 +23,346 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="About — Haymaker Studio">
-  <meta name="twitter:description" content="Built by athletes who figured it out — so you don't have to.">
+  <meta name="twitter:description" content="Built by an athlete who figured it out — so you don't have to.">
   <meta name="twitter:image" content="/og.png">
 
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ── About Hero ─────────────────────────────────────────── */
+    .about-hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .about-hero__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .about-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(17,17,17,0.25) 0%,
+        rgba(17,17,17,0.35) 40%,
+        rgba(17,17,17,0.75) 70%,
+        rgba(17,17,17,0.97) 100%
+      );
+    }
+
+    .about-hero__content {
+      position: relative;
+      z-index: 1;
+      padding: 0 0 88px;
+      width: 100%;
+    }
+
+    .about-hero__eyebrow {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+
+    .about-hero__headline {
+      font-family: var(--font-ui);
+      font-size: clamp(56px, 9vw, 120px);
+      font-weight: 600;
+      line-height: 0.92;
+      letter-spacing: -0.01em;
+      color: var(--hm-white);
+      text-transform: uppercase;
+    }
+
+    .about-hero__headline .line {
+      display: block;
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .js-enabled .about-hero__headline .line {
+      animation: heroLineIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .js-enabled .about-hero__headline .line:nth-child(1) { animation-delay: 0.10s; }
+    .js-enabled .about-hero__headline .line:nth-child(2) { animation-delay: 0.25s; }
+    .js-enabled .about-hero__headline .line:nth-child(3) { animation-delay: 0.40s; }
+
+    @keyframes heroLineIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── Story Layout ───────────────────────────────────────── */
+    .story-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .story-stats {
+      position: sticky;
+      top: calc(var(--nav-height) + 32px);
+    }
+
+    .story-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .story-stat-item {
+      background: var(--hm-surface-1);
+      border: 0.5px solid var(--hm-surface-3);
+      padding: 20px 18px 18px;
+    }
+
+    .story-stat-item:first-child { border-radius: 10px 0 0 0; }
+    .story-stat-item:nth-child(2) { border-radius: 0 10px 0 0; }
+    .story-stat-item:nth-child(3) { border-radius: 0 0 0 10px; }
+    .story-stat-item:last-child { border-radius: 0 0 10px 0; }
+
+    .story-stat-num {
+      font-family: var(--font-ui);
+      font-size: clamp(24px, 2.8vw, 36px);
+      font-weight: 600;
+      color: var(--hm-text-primary);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .story-stat-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      color: var(--hm-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 7px;
+      line-height: 1.4;
+    }
+
+    .story-emphasis {
+      display: block;
+      margin-top: 32px;
+      margin-bottom: 32px;
+      font-size: 17px;
+      color: var(--hm-text-primary);
+      font-style: italic;
+    }
+
+    .story-turn {
+      display: block;
+      margin-top: 48px;
+      font-family: var(--font-ui);
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 600;
+      color: var(--hm-text-primary);
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    /* ── Why Haymaker ───────────────────────────────────────── */
+    .why-body p {
+      margin-bottom: 24px;
+    }
+
+    .why-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .why-three {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin: 32px 0;
+    }
+
+    .why-three span {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--hm-text-secondary);
+      line-height: 1.75;
+    }
+
+    /* ── Team ───────────────────────────────────────────────── */
+    .team-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .team-photo-wrap {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 20px;
+      background: var(--hm-surface-2);
+      border: 0.5px solid var(--hm-surface-3);
+      flex-shrink: 0;
+    }
+
+    .team-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .team-name {
+      font-family: var(--font-ui);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--hm-text-primary);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+      line-height: 1.1;
+    }
+
+    .team-title {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--hm-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 16px;
+    }
+
+    /* ── Haymaker Today ─────────────────────────────────────── */
+    .today-stats {
+      display: flex;
+      gap: 0;
+      border: 0.5px solid var(--hm-surface-3);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 48px;
+    }
+
+    .today-stat {
+      flex: 1;
+      padding: 28px 24px 24px;
+      border-right: 0.5px solid var(--hm-surface-3);
+      background: var(--hm-surface-1);
+    }
+
+    .today-stat:last-child {
+      border-right: none;
+    }
+
+    .today-logos {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .today-logo-text {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--hm-text-inactive);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .story-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .story-stats {
+        position: static;
+        order: 2;
+      }
+
+      .story-stat-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .story-stat-item:first-child { border-radius: 10px 0 0 10px; }
+      .story-stat-item:nth-child(2) { border-radius: 0; }
+      .story-stat-item:nth-child(3) { border-radius: 0; }
+      .story-stat-item:last-child { border-radius: 0 10px 10px 0; }
+
+      .today-stats {
+        flex-wrap: wrap;
+      }
+
+      .today-stat {
+        flex: 1 1 calc(50% - 1px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .about-hero {
+        min-height: 100svh;
+      }
+
+      .about-hero__headline {
+        font-size: clamp(48px, 14vw, 80px);
+      }
+
+      .about-hero__content {
+        padding-bottom: 64px;
+      }
+
+      .story-stat-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .story-stat-item:first-child { border-radius: 10px 0 0 0; }
+      .story-stat-item:nth-child(2) { border-radius: 0 10px 0 0; }
+      .story-stat-item:nth-child(3) { border-radius: 0 0 0 10px; }
+      .story-stat-item:last-child { border-radius: 0 0 10px 0; }
+
+      .today-stats {
+        flex-direction: column;
+      }
+
+      .today-stat {
+        border-right: none;
+        border-bottom: 0.5px solid var(--hm-surface-3);
+      }
+
+      .today-stat:last-child {
+        border-bottom: none;
+      }
+
+      .today-logos {
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .about-hero__headline .line {
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -51,66 +387,91 @@
   </nav>
 
   <!-- ==========================================
-       MISSION HERO
+       HERO
        ========================================== -->
-  <section class="page-hero">
-    <div class="container">
-      <div style="max-width: 760px;">
-        <p class="eyebrow">Our mission</p>
-        <h1 class="headline-display mb-xl">
-          HAYMAKER
+  <section class="about-hero">
+    <!-- ASSET: Replace with high-quality athletic/candid photo of Ian — not a headshot -->
+    <img
+      class="about-hero__img"
+      src="ian 1.jpeg"
+      alt="Ian Gunther — 4× NCAA Champion and co-founder of Haymaker"
+    >
+    <div class="about-hero__overlay"></div>
+    <div class="about-hero__content">
+      <div class="container">
+        <p class="about-hero__eyebrow">Hi, I'm Ian.</p>
+        <h1 class="about-hero__headline">
+          <span class="line">Four years.</span>
+          <span class="line">Four titles.</span>
+          <span class="line">Built something beyond it.</span>
         </h1>
-        <p class="body-lg" style="max-width: 600px;">
-          NIL shouldn't require you to become a content creator on top of being an athlete. Haymaker exists to handle the 15 hours a week that nobody in season actually has.
-        </p>
       </div>
     </div>
   </section>
 
-  <hr class="divider">
-
   <!-- ==========================================
-       THE FOUNDER
+       THE STORY
        ========================================== -->
-  <section class="section" id="founder">
+  <section class="section" id="story">
     <div class="container">
-      <div class="grid-2-center">
+      <div class="story-layout">
 
-        <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/5; max-width: 480px; width: 100%; background: var(--hm-black);">
-          <img src="ian 1.jpeg" alt="Ian Gunther — founder of Haymaker, Stanford gymnast" style="width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; filter: brightness(0.85) contrast(1.1) grayscale(0.15);">
-          <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 65% 55% at 50% 30%, transparent 35%, rgba(17,17,17,0.92) 100%);"></div>
-        </div>
-
+        <!-- Copy -->
         <div>
-          <p class="eyebrow">Co-founder, Haymaker</p>
-          <h2 class="headline-lg mb-xl">
-            Hi, I'm Ian.
+          <p class="eyebrow reveal">The story</p>
+          <h2 class="headline-lg mb-xl reveal reveal-d1">
+            I built 5M followers<br>while I was competing.<br>Not after — during.
           </h2>
 
-          <p class="body-md mb-md">
-            I'm a four-time NCAA champion and Stanford grad. I built a 5M following while I was competing — not after, during. Training sessions, finals week, all of it. Gymnastics was my whole life and I never wanted that to stop.
-          </p>
-          <p class="body-md mb-md">
-            What I figured out is that social media was the way to keep it going. The following I built while competing became my career after it. Brand deals, partnerships, a platform — it all came from the audience I built while I was still an athlete.
-          </p>
-          <p class="body-md mb-md">
-            Most athletes have everything it takes to do exactly that. The sport, the story, the access. What nobody has is 10 to 15 hours a week of editing, posting, and pitching that simply doesn't fit alongside a full training schedule and a full course load.
-          </p>
-          <p class="body-md mb-xl">
-            That's what Haymaker is. The team that handles those hours. The system I spent two years building by trial and error, now available to athletes from day one.
+          <p class="body-lg mb-md reveal reveal-d2">
+            Training sessions, finals week, competition days, injury recovery. All of it. Gymnastics was my whole life and I never wanted that to stop.
           </p>
 
-          <!-- Ian's social channels -->
-          <div style="margin-top: 32px;">
-            <p class="eyebrow" style="margin-bottom: 12px;">See his work</p>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-              <a href="https://www.youtube.com/@iangunther" target="_blank" rel="noopener" class="btn btn-secondary">YouTube</a>
-              <a href="https://www.instagram.com/iandgunther/" target="_blank" rel="noopener" class="btn btn-secondary">Instagram</a>
-              <a href="https://www.tiktok.com/@ian.gunther" target="_blank" rel="noopener" class="btn btn-secondary">TikTok</a>
-              <a href="https://www.facebook.com/ian.gunther.35/" target="_blank" rel="noopener" class="btn btn-secondary">Facebook</a>
+          <p class="body-md mb-md reveal">
+            What I figured out during that time is that social media wasn't a distraction from the sport — it was the way to keep it alive after it ended. The following I built while competing became the career that followed. Brand deals, partnerships, a platform that kept going long after the gymnastics did.
+          </p>
+
+          <p class="body-md reveal" style="color: var(--hm-text-primary);">
+            <em class="story-emphasis">I was obsessed. I made it my second job.</em>
+          </p>
+
+          <p class="body-md mb-md reveal">
+            I shot, edited, posted, analyzed, and did it all over again the next week. For years.
+          </p>
+
+          <p class="body-md mb-md reveal">
+            And I know most athletes aren't going to do it that way. They shouldn't have to.
+          </p>
+
+          <p class="body-md mb-md reveal">
+            Because here's what I saw when I looked around at my teammates, my competitors, the athletes I trained alongside for four years: they had everything it takes. The sport, the story, the access to moments that people genuinely want to watch. What they didn't have was time. And nobody was going to give it back to them.
+          </p>
+
+          <p class="body-md reveal">
+            <span class="story-turn">So I built the team I wish I'd had.</span>
+          </p>
+        </div>
+
+        <!-- Stats sidebar -->
+        <div class="story-stats">
+          <div class="story-stat-grid reveal">
+            <div class="story-stat-item">
+              <div class="story-stat-num">5M</div>
+              <div class="story-stat-label">Followers built while competing</div>
+            </div>
+            <div class="story-stat-item">
+              <div class="story-stat-num">~10B</div>
+              <div class="story-stat-label">Total views</div>
+            </div>
+            <div class="story-stat-item">
+              <div class="story-stat-num red">4×</div>
+              <div class="story-stat-label">NCAA Champion</div>
+            </div>
+            <div class="story-stat-item">
+              <div class="story-stat-num">BS/MS</div>
+              <div class="story-stat-label">Stanford University</div>
             </div>
           </div>
-
         </div>
 
       </div>
@@ -120,91 +481,139 @@
   <hr class="divider">
 
   <!-- ==========================================
-       WHAT WE BELIEVE — 4 PRINCIPLES
+       WHY HAYMAKER
        ========================================== -->
-  <section class="section" id="beliefs">
+  <section class="section" id="why" style="background: var(--hm-surface-1);">
+    <div class="container">
+      <div style="max-width: 680px;">
+        <p class="eyebrow reveal">Why Haymaker</p>
+        <h2 class="headline-lg mb-xl reveal reveal-d1">
+          The system I wish I'd had.
+        </h2>
+
+        <div class="why-body reveal reveal-d2">
+          <p class="body-lg">
+            Most athletes have everything it takes. The sport, the story, the access. What they don't have is a team behind them — one that shows up every week, handles the production, and builds the audience while the athlete focuses entirely on competing.
+          </p>
+
+          <div class="why-three reveal">
+            <span class="body-lg">Not a tool.</span>
+            <span class="body-lg">Not a course.</span>
+            <span class="body-lg">Not an agency that sends a PDF strategy and disappears.</span>
+          </div>
+
+          <p class="body-md mb-md">
+            A team that shows up, does the work, and makes sure the athlete leaves college with something real.
+          </p>
+
+          <p class="body-md mb-md">
+            The name comes from the phrase "<span style="color: var(--hm-red);">make hay while the sun shines.</span>" When conditions are right, you act. For college athletes, conditions are right now. The eligibility window is short, and it doesn't reopen.
+          </p>
+
+          <p class="body-md">
+            We built Haymaker around that idea. Use the window. Build something while the sport is still yours.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ==========================================
+       THE TEAM
+       ========================================== -->
+  <section class="section" id="team">
     <div class="container">
 
       <div style="margin-bottom: 64px;">
-        <p class="eyebrow">What we believe</p>
-        <h2 class="headline-lg">
-          Three things we believe<br>that shape everything<br>we build.
-        </h2>
+        <p class="eyebrow reveal">The people behind it</p>
+        <h2 class="headline-lg reveal reveal-d1">The people behind it.</h2>
       </div>
 
-      <div style="display: flex; flex-direction: column; gap: 0;">
-
-        <!-- Belief 1 -->
-        <div style="padding: 48px 0; border-top: 0.5px solid var(--hm-surface-4);">
-          <div class="grid-2">
-            <div>
-              <p style="font-family: var(--font-ui); font-size: 13px; font-weight: 500; color: var(--hm-red); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px;">01</p>
-              <h3 class="headline-md">
-                NIL should be<br>a system, not a<br>series of exceptions.
-              </h3>
-            </div>
-            <div style="padding-top: 8px;">
-              <p class="body-md">
-                Every athlete who joins gets the same professional workflows, the same content systems, the same brand development process. Not just the stars. Not just the revenue sports.
-              </p>
-            </div>
-          </div>
+      <!-- Ian -->
+      <div class="team-card reveal reveal-d2" style="max-width: 480px;">
+        <div class="team-photo-wrap">
+          <!-- ASSET: Ian photo — circular crop, same or different from hero -->
+          <img src="ian 1.jpeg" alt="Ian Gunther">
         </div>
-
-        <!-- Belief 2 -->
-        <div style="padding: 48px 0; border-top: 0.5px solid var(--hm-surface-4);">
-          <div class="grid-2">
-            <div>
-              <p style="font-family: var(--font-ui); font-size: 13px; font-weight: 500; color: var(--hm-red); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px;">02</p>
-              <h3 class="headline-md">
-                The goal isn't<br>the deal. It's<br>what you build.
-              </h3>
-            </div>
-            <div style="padding-top: 8px;">
-              <p class="body-md mb-md">
-                One-off brand deals are fine. A following that generates opportunities for the next ten years is better.
-              </p>
-              <p class="body-md">
-                The NIL revenue is a byproduct of building something real. We focus on the something real.
-              </p>
-            </div>
-          </div>
+        <div class="team-name">Ian Gunther</div>
+        <div class="team-title">Co-Founder</div>
+        <p class="body-md" style="max-width: 420px;">
+          4× NCAA Champion. Stanford BS/MS. Built 5M followers while competing full time. Haymaker is the team he wished he'd had.
+        </p>
+        <div style="margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap;">
+          <a href="https://www.youtube.com/@iangunther" target="_blank" rel="noopener" class="btn btn-secondary">YouTube</a>
+          <a href="https://www.instagram.com/iandgunther/" target="_blank" rel="noopener" class="btn btn-secondary">Instagram</a>
+          <a href="https://www.tiktok.com/@ian.gunther" target="_blank" rel="noopener" class="btn btn-secondary">TikTok</a>
         </div>
-
-        <!-- Belief 3 -->
-        <div style="padding: 48px 0; border-top: 0.5px solid var(--hm-surface-4); border-bottom: 0.5px solid var(--hm-surface-4);">
-          <div class="grid-2">
-            <div>
-              <p style="font-family: var(--font-ui); font-size: 13px; font-weight: 500; color: var(--hm-red); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px;">03</p>
-              <h3 class="headline-md">
-                It's not software.<br>It's a team.
-              </h3>
-            </div>
-            <div style="padding-top: 8px;">
-              <p class="body-md">
-                We don't hand you an app and wish you luck. A crew shows up to your practices. Content posts every week. Brand deals arrive with terms attached. The system runs while you compete.
-              </p>
-            </div>
-          </div>
-        </div>
-
       </div>
+
     </div>
   </section>
 
+  <hr class="divider">
+
   <!-- ==========================================
-       FINAL CTA
+       HAYMAKER TODAY
+       ========================================== -->
+  <section class="section" id="today">
+    <div class="container">
+
+      <div style="margin-bottom: 56px;">
+        <p class="eyebrow reveal">Haymaker today</p>
+        <h2 class="headline-lg reveal reveal-d1">Where we are now.</h2>
+      </div>
+
+      <!-- Stats row -->
+      <div class="today-stats reveal reveal-d2">
+        <div class="today-stat">
+          <div class="stat-number">50M+</div>
+          <div class="stat-label">Views generated across athlete accounts</div>
+        </div>
+        <div class="today-stat">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">Athletes across every sport and stage</div>
+        </div>
+        <div class="today-stat">
+          <div class="stat-number" style="font-size: clamp(18px, 2vw, 26px);">Stanford Athletics</div>
+          <div class="stat-label">Institutional partner</div>
+        </div>
+        <div class="today-stat">
+          <div class="stat-number" style="font-size: clamp(18px, 2vw, 26px);">USAG</div>
+          <div class="stat-label">Institutional partner</div>
+        </div>
+      </div>
+
+      <!-- Partner logos -->
+      <div class="today-logos reveal">
+        <span class="today-logo-text">Stanford Athletics</span>
+        <span class="today-logo-text" style="color: var(--hm-surface-3);">·</span>
+        <span class="today-logo-text">USAG</span>
+      </div>
+
+      <p class="body-md reveal" style="max-width: 560px; color: var(--hm-text-tertiary);">
+        We started with Stanford. We're building toward every program, every sport, every athlete who has four years and wants to use them.
+      </p>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ==========================================
+       CLOSING CTA
        ========================================== -->
   <section class="section text-center">
     <div class="container">
       <div style="max-width: 600px; margin: 0 auto;">
-        <h2 class="headline-md mb-xl">
-          Haymaker is what I wish I had.<br>Now it's yours.
-        </h2>
-        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-          <!-- REPLACE: Update href with your actual application form URL -->
+        <h2 class="headline-lg mb-lg reveal">Want to work with us?</h2>
+        <p class="body-md mb-xl reveal reveal-d1" style="color: var(--hm-text-tertiary);">
+          Whether you're an athlete, a program, or just want to know more — we're easy to reach.
+        </p>
+        <div class="reveal reveal-d2" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
           <a href="https://forms.gle/S9wnY3Ffvu5MfXEEA" class="btn btn-primary btn-lg">Apply now →</a>
-          <a href="programs" class="btn btn-ghost btn-lg">For programs →</a>
+          <a href="mailto:hello@haymaker-studio.com" class="btn btn-ghost btn-lg">Get in touch →</a>
         </div>
       </div>
     </div>
@@ -224,9 +633,9 @@
           <p class="footer-col-title">Navigate</p>
           <ul class="footer-nav">
             <li><a href="/">Home</a></li>
-          <li><a href="/#how-it-works">How it works</a></li>
+            <li><a href="process">Our Process</a></li>
             <li><a href="testimonials">For athletes</a></li>
-            <li><a href="programs">For programs</a></li>
+            <li><a href="programs">For universities</a></li>
             <li><a href="about">About</a></li>
             <li><a href="https://forms.gle/S9wnY3Ffvu5MfXEEA">Apply now</a></li>
           </ul>
