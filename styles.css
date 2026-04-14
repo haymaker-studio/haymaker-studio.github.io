@@ -1319,6 +1319,89 @@ blockquote cite {
 }
 
 /* ============================================
+   Source Sections (Process page)
+   ============================================ */
+.source-num {
+  font-family: var(--font-ui);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 600;
+  color: var(--hm-red);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+/* Alternating layout — 01/03 left, 02 right on desktop */
+.source-block {
+  max-width: 680px;
+}
+
+.source-block-alt {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+@media (max-width: 960px) {
+  .source-block-alt {
+    margin-left: 0;
+  }
+}
+
+/* ============================================
+   Section with Alt Background
+   ============================================ */
+.section-alt {
+  padding: var(--section-pad-v) 0;
+  background: var(--hm-surface-1);
+}
+
+/* ============================================
+   Week Timeline (Process page)
+   ============================================ */
+.week-timeline {
+  display: flex;
+  flex-direction: column;
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+.week-day {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 32px;
+  padding: 22px 0;
+  border-top: 0.5px solid var(--hm-surface-4);
+  align-items: baseline;
+}
+
+.week-day:last-child {
+  border-bottom: 0.5px solid var(--hm-surface-4);
+}
+
+.week-day-label {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--hm-red);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.week-day-copy {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--hm-text-secondary);
+  line-height: 1.65;
+}
+
+@media (max-width: 640px) {
+  .week-day {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+/* ============================================
    Logo Lockup
    ============================================ */
 .logo-lockup {
