@@ -310,4 +310,143 @@
     }, delay);
   });
 
+  // ── Video Data ───────────────────────────────────────────────
+  window.HM_VIDEOS = [
+    // PAUL JUDA — USA Gymnastics / Michigan
+    { shortcode: 'DIwxvo2zTX8',     platform: 'instagram', athlete: 'Paul Juda',                                          sport: 'USA Gymnastics · Michigan',           views: '4M',    featured: true  },
+    { shortcode: 'DJ2psBsyTbc',     platform: 'instagram', athlete: 'Paul Juda',                                          sport: 'USA Gymnastics · Michigan',           views: '839K',  featured: true  },
+    { shortcode: 'DJPlHQgTIur',     platform: 'instagram', athlete: 'Paul Juda',                                          sport: 'USA Gymnastics · Michigan',           views: '428K',  featured: false },
+    { shortcode: 'DI19D4kT-wG',     platform: 'instagram', athlete: 'Paul Juda',                                          sport: 'USA Gymnastics · Michigan',           views: '199K',  featured: false },
+    { shortcode: 'DJVRL-uy_Oz',     platform: 'instagram', athlete: 'Paul Juda',                                          sport: 'USA Gymnastics · Michigan',           views: '21.2K', featured: false },
+    // STANFORD GYMNASTICS — Group
+    { shortcode: 'DRp19PRgZGX',     platform: 'instagram', athlete: 'Jaime Dugan, Levi Jung-Ruivivar & Porsche Trinidad', sport: 'Stanford Gymnastics',                 views: '17.3M', featured: true  },
+    { shortcode: 'DRxIOkYidrY',     platform: 'instagram', athlete: 'Ian Gunther, Jaime Dugan & Porsche Trinidad',        sport: 'Stanford Gymnastics',                 views: '4.8M',  featured: true  },
+    { shortcode: 'DSWLgqDiTOs',     platform: 'instagram', athlete: 'Stanford Gymnastics',                                sport: 'Stanford Gymnastics',                 views: '3.1M',  featured: true  },
+    { shortcode: 'DSB2gGdkQcz',     platform: 'instagram', athlete: 'Jaime Dugan, Levi Jung-Ruivivar & Porsche Trinidad', sport: 'Stanford Gymnastics',                 views: '1.2M',  featured: false },
+    // TAYLOR BURKHART — USA / Stanford
+    { shortcode: 'DLIb3_SvYCT',     platform: 'instagram', athlete: 'Taylor Burkhart',                                    sport: 'USA Gymnastics · Stanford',           views: '2.4M',  featured: true  },
+    { shortcode: 'DNtl_uWZBG3',     platform: 'instagram', athlete: 'Taylor Burkhart',                                    sport: 'USA Gymnastics · Stanford',           views: null,    featured: false },
+    // LEVI JUNG-RUIVIVAR — Stanford Women's Gymnastics
+    { shortcode: 'DSG0pEYEo6R',     platform: 'instagram', athlete: 'Levi Jung-Ruivivar',                                 sport: "Stanford Women's Gymnastics",         views: '129K',  featured: false },
+    // ANNA ROBERTS — Stanford Women's Gymnastics
+    { shortcode: 'DViQmOlj963',     platform: 'instagram', athlete: 'Anna Roberts',                                       sport: "Stanford Women's Gymnastics",         views: '430K',  featured: false },
+    // TEMPLE LANDRY — Stanford Women's Gymnastics
+    { shortcode: 'DW_wXM3hKBH',     platform: 'instagram', athlete: 'Temple Landry',                                      sport: "Stanford Women's Gymnastics",         views: '163K',  featured: false },
+    // PORSCHE MIA TRINIDAD — Stanford Women's Gymnastics
+    { shortcode: 'CwqiZNgy4jy',     platform: 'instagram', athlete: 'Porsche Mia Trinidad',                               sport: "Stanford Women's Gymnastics",         views: '1.2M',  featured: false },
+    // ALANA WALKER — Stanford / Jamaica National Team
+    { shortcode: 'DRyKFZhCpKk',     platform: 'instagram', athlete: 'Alana Walker',                                       sport: 'Stanford · Jamaica National Team',    views: '312K',  featured: false },
+    { shortcode: 'DSJzUTliqx6',     platform: 'instagram', athlete: 'Alana Walker',                                       sport: 'Stanford · Jamaica National Team',    views: '124K',  featured: false },
+    // JAIME DUGAN — Stanford Women's Gymnastics
+    { shortcode: 'DSEDAEZgaqH',     platform: 'instagram', athlete: 'Jaime Dugan',                                        sport: "Stanford Women's Gymnastics",         views: '38.7K', featured: false },
+    // CLAIRE DEAN & ANNA ROBERTS — Stanford
+    { shortcode: 'DRydCKUDgDk',     platform: 'instagram', athlete: 'Claire Dean & Anna Roberts',                         sport: "Stanford Women's Gymnastics",         views: '77K',   featured: false },
+    // SIMONE BILES & JOSCELYN ROBERSON — USA Gymnastics (TikTok, opens externally)
+    { shortcode: 'ZTk5XN4nY',       platform: 'tiktok',    athlete: 'Simone Biles & Joscelyn Roberson',                   sport: 'USA Gymnastics',                      views: null,    featured: false, externalUrl: 'https://www.tiktok.com/t/ZTk5XN4nY/' },
+    // RUBEN LOPEZ — Spain National Team
+    { shortcode: 'DW65JBoJn95',     platform: 'instagram', athlete: 'Ruben Lopez',                                        sport: 'Spain National Team',                 views: '50.4K', featured: false },
+    { shortcode: 'DRyVooDEVgk',     platform: 'instagram', athlete: 'Ruben Lopez',                                        sport: 'Spain National Team',                 views: '26.2K', featured: false },
+    { shortcode: 'DQWnUgMEdDZ',     platform: 'instagram', athlete: 'Ruben Lopez',                                        sport: 'Spain National Team',                 views: '74.5K', featured: false },
+    // RILEY LOOS — Women's Gymnastics (TikTok, numeric ID embeds)
+    { shortcode: '7628817224047922445', platform: 'tiktok', athlete: 'Riley Loos',                                         sport: "Women's Gymnastics",                  views: '192.4K',featured: false },
+    // REMAINING FROM ORIGINAL LIST (thumbnails TBD)
+    { shortcode: 'DTn6BVgkmch',     platform: 'instagram', athlete: 'Haymaker Athletes',                                   sport: 'Gymnastics',                          views: null,    featured: false },
+    { shortcode: 'DWNYMPXjOMh',     platform: 'instagram', athlete: 'Haymaker Athletes',                                   sport: 'Gymnastics',                          views: null,    featured: false },
+  ];
+
+  // ── Video Card Renderer ──────────────────────────────────────
+  var EYE_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="11" height="11" style="flex-shrink:0"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>';
+  var PLAY_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>';
+
+  function buildVideoCard(v, index) {
+    var thumb = 'images/vid-' + v.shortcode + '.jpg';
+    var delayClass = index % 4 === 1 ? ' reveal-d1' : index % 4 === 2 ? ' reveal-d2' : index % 4 === 3 ? ' reveal-d3' : '';
+    var viewsHtml = v.views ? '<div class="video-card-views">' + EYE_SVG + ' ' + v.views + '</div>' : '';
+    var platformLabel = v.platform === 'tiktok' ? 'TikTok' : 'IG';
+
+    if (v.externalUrl) {
+      return '<a class="video-card reveal' + delayClass + '" href="' + v.externalUrl + '" target="_blank" rel="noopener">' +
+        '<img class="video-card-thumb" src="' + thumb + '" alt="' + v.athlete + '" loading="lazy" onerror="this.style.opacity=0">' +
+        '<div class="video-card-overlay"></div>' +
+        '<div class="video-card-play">' + PLAY_SVG + '</div>' +
+        viewsHtml +
+        '<div class="video-card-platform">' + platformLabel + '</div>' +
+        '<div class="video-card-info"><div class="video-card-athlete">' + v.athlete + '</div><div class="video-card-sport">' + v.sport + '</div></div>' +
+      '</a>';
+    }
+
+    return '<div class="video-card reveal' + delayClass + '" data-shortcode="' + v.shortcode + '" data-platform="' + v.platform + '" onclick="window.hmOpenVideo(\'' + v.shortcode + '\',\'' + v.platform + '\')" role="button" tabindex="0" aria-label="Watch ' + v.athlete + '">' +
+      '<img class="video-card-thumb" src="' + thumb + '" alt="' + v.athlete + '" loading="lazy" onerror="this.style.opacity=0">' +
+      '<div class="video-card-overlay"></div>' +
+      '<div class="video-card-play">' + PLAY_SVG + '</div>' +
+      viewsHtml +
+      '<div class="video-card-platform">' + platformLabel + '</div>' +
+      '<div class="video-card-info"><div class="video-card-athlete">' + v.athlete + '</div><div class="video-card-sport">' + v.sport + '</div></div>' +
+    '</div>';
+  }
+
+  function renderVideoGrid(containerId, videos) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = videos.map(function(v, i) { return buildVideoCard(v, i); }).join('');
+    // Re-observe new reveal elements
+    container.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  }
+
+  window.hmRenderVideoGrid = renderVideoGrid;
+
+  // ── Video Modal ──────────────────────────────────────────────
+  var videoModal = document.getElementById('video-modal');
+
+  function hmOpenVideo(shortcode, platform) {
+    if (!videoModal) return;
+    var embed = videoModal.querySelector('.video-modal-embed');
+    var src;
+    if (platform === 'instagram') {
+      src = 'https://www.instagram.com/p/' + shortcode + '/embed/';
+    } else {
+      src = 'https://www.tiktok.com/embed/v2/' + shortcode;
+    }
+    embed.innerHTML = '<iframe src="' + src + '" frameborder="0" scrolling="no" allowtransparency="true" allow="autoplay" allowfullscreen></iframe>';
+    videoModal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hmCloseVideo() {
+    if (!videoModal) return;
+    videoModal.classList.remove('is-open');
+    var embed = videoModal.querySelector('.video-modal-embed');
+    setTimeout(function() { embed.innerHTML = ''; }, 300);
+    document.body.style.overflow = '';
+  }
+
+  window.hmOpenVideo = hmOpenVideo;
+  window.hmCloseVideo = hmCloseVideo;
+
+  if (videoModal) {
+    videoModal.querySelector('.video-modal-backdrop').addEventListener('click', hmCloseVideo);
+    videoModal.querySelector('.video-modal-close').addEventListener('click', hmCloseVideo);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') hmCloseVideo();
+    });
+  }
+
+  // Keyboard support on video cards
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && document.activeElement && document.activeElement.classList.contains('video-card')) {
+      var sc = document.activeElement.dataset.shortcode;
+      var pl = document.activeElement.dataset.platform;
+      if (sc && pl) hmOpenVideo(sc, pl);
+    }
+  });
+
+  // ── Render grids on page load ────────────────────────────────
+  document.addEventListener('DOMContentLoaded', function() {
+    var featured = window.HM_VIDEOS.filter(function(v) { return v.featured; });
+    renderVideoGrid('work-featured', featured);
+    renderVideoGrid('work-all', window.HM_VIDEOS);
+  });
+
 })();
