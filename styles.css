@@ -2218,3 +2218,46 @@ blockquote cite {
     font-size: 26px;
   }
 }
+
+/* ============================================
+   Hover Lifts & Card Effects
+   ============================================ */
+.story-stat-item,
+.today-stat {
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+  cursor: default;
+}
+
+.story-stat-item:hover,
+.today-stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.4);
+  background: var(--hm-surface-2);
+}
+
+.team-card {
+  transition: transform 0.25s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+}
+
+.ian-strip__slide {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.ian-strip__slide:hover {
+  transform: scale(1.025);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+}
+
+.story-collage__img {
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.story-collage__img:hover {
+  box-shadow: 0 24px 60px rgba(0,0,0,0.65);
+  z-index: 3 !important;
+}

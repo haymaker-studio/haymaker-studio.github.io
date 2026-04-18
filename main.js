@@ -227,6 +227,19 @@
     revealObserver.observe(el);
   });
 
+  // ── Auto-stagger grid children ───────────────────────────────
+  // Grids whose items should cascade in rather than all at once
+  document.querySelectorAll('.story-stat-grid, .today-stats').forEach(function (grid) {
+    grid.classList.remove('reveal', 'reveal-d2');
+    grid.style.opacity = '';
+    grid.style.transform = '';
+    Array.from(grid.children).forEach(function (child, i) {
+      child.classList.add('reveal');
+      child.style.transitionDelay = (i * 0.09) + 's';
+      revealObserver.observe(child);
+    });
+  });
+
   // ── Time bar fill animations ─────────────────────────────────
   var timeBarsEl = document.querySelector('.time-bars');
   if (timeBarsEl) {
@@ -448,5 +461,75 @@
     renderVideoGrid('work-featured', featured);
     renderVideoGrid('work-all', window.HM_VIDEOS);
   });
+
+  // ── Stat Counter Animation ───────────────────────────────────
+  function parseStatNum(text) {
+    var t = (text || '').trim();
+    var m = t.match(/^([~$]?)(\d+(?:\.\d+)?)([A-Za-z+×%/]*)$/);
+    if (!m || isNaN(parseFloat(m[2]))) return null;
+    return { prefix: m[1], value: parseFloat(m[2]), suffix: m[3], original: t };
+  }
+
+  function runCounter(el, parsed) {
+    var duration = 1400;
+    var start = null;
+    var end = parsed.value;
+    function ease(t) { return 1 - Math.pow(1 - t, 3); }
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var val = Math.round(end * ease(p));
+      el.textContent = parsed.prefix + val + parsed.suffix;
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = parsed.original;
+    }
+    el.textContent = parsed.prefix + '0' + parsed.suffix;
+    requestAnimationFrame(step);
+  }
+
+  var counterObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var parsed = parseStatNum(entry.target.textContent);
+      if (parsed) runCounter(entry.target, parsed);
+      counterObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.6 });
+
+  document.querySelectorAll('.stat-number, .story-stat-num').forEach(function (el) {
+    if (parseStatNum(el.textContent)) counterObserver.observe(el);
+  });
+
+  // ── Hero Parallax ────────────────────────────────────────────
+  var parallaxImg = document.querySelector('.about-hero__img');
+  if (parallaxImg) {
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY;
+      if (y < window.innerHeight * 1.2) {
+        parallaxImg.style.transform = 'translateY(' + Math.round(y * 0.18) + 'px)';
+      }
+    }, { passive: true });
+  }
+
+  // ── Photo Strip Auto-scroll ──────────────────────────────────
+  var ianStrip = document.querySelector('.ian-strip');
+  if (ianStrip) {
+    var stripPaused = false;
+    ianStrip.addEventListener('mouseenter', function () { stripPaused = true; });
+    ianStrip.addEventListener('mouseleave', function () { stripPaused = false; });
+    ianStrip.addEventListener('touchstart', function () { stripPaused = true; }, { passive: true });
+    ianStrip.addEventListener('touchend', function () {
+      setTimeout(function () { stripPaused = false; }, 2000);
+    }, { passive: true });
+    (function scrollStrip() {
+      if (!stripPaused) {
+        ianStrip.scrollLeft += 0.6;
+        if (ianStrip.scrollLeft >= ianStrip.scrollWidth - ianStrip.clientWidth - 1) {
+          ianStrip.scrollLeft = 0;
+        }
+      }
+      requestAnimationFrame(scrollStrip);
+    })();
+  }
 
 })();

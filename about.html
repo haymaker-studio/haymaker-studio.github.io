@@ -247,6 +247,111 @@
       margin-bottom: 16px;
     }
 
+    /* ── Story Photo Collage ───────────────────────────────── */
+    .story-collage {
+      position: relative;
+      height: 460px;
+      margin-bottom: 20px;
+    }
+
+    .story-collage__img {
+      position: absolute;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 0.5px solid var(--hm-surface-3);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    }
+
+    .story-collage__img img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .story-collage__img:first-child {
+      width: 85%;
+      height: 300px;
+      top: 0;
+      right: 0;
+      transform: rotate(2.5deg);
+      z-index: 1;
+    }
+
+    .story-collage__img:last-child {
+      width: 72%;
+      height: 260px;
+      bottom: 0;
+      left: 0;
+      transform: rotate(-2deg);
+      z-index: 2;
+    }
+
+    /* ── Ian Photo Strip ───────────────────────────────────── */
+    .ian-strip-section {
+      padding-top: 0;
+    }
+
+    .ian-strip-header {
+      margin-bottom: 28px;
+    }
+
+    .ian-strip {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      cursor: grab;
+    }
+
+    .ian-strip:active {
+      cursor: grabbing;
+    }
+
+    .ian-strip::-webkit-scrollbar {
+      display: none;
+    }
+
+    .ian-strip__slide {
+      flex: 0 0 260px;
+      scroll-snap-align: start;
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      background: var(--hm-surface-2);
+      border: 0.5px solid var(--hm-surface-3);
+    }
+
+    .ian-strip__slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      pointer-events: none;
+    }
+
+    @media (max-width: 640px) {
+      .ian-strip__slide {
+        flex: 0 0 72vw;
+      }
+
+      .story-collage {
+        height: 340px;
+      }
+
+      .story-collage__img:first-child {
+        height: 220px;
+      }
+
+      .story-collage__img:last-child {
+        height: 195px;
+      }
+    }
+
     /* ── Haymaker Today ─────────────────────────────────────── */
     .today-stats {
       display: flex;
@@ -402,7 +507,7 @@
     <!-- ASSET: Replace with high-quality athletic/candid photo of Ian — not a headshot -->
     <img
       class="about-hero__img"
-      src="ian 1.jpeg"
+      src="ian-stanford.jpg"
       alt="Ian Gunther, 4x NCAA Champion and co-founder of Haymaker"
     >
     <div class="about-hero__overlay"></div>
@@ -461,8 +566,16 @@
           </p>
         </div>
 
-        <!-- Stats sidebar -->
+        <!-- Photos + stats sidebar -->
         <div class="story-stats">
+          <div class="story-collage reveal">
+            <div class="story-collage__img">
+              <img src="ian-ncaa.png" alt="Ian Gunther lifting the NCAA championship trophy">
+            </div>
+            <div class="story-collage__img">
+              <img src="ian-fx.jpg" alt="Ian Gunther celebrating on floor exercise">
+            </div>
+          </div>
           <div class="story-stat-grid reveal">
             <div class="story-stat-item">
               <div class="story-stat-num">5M</div>
@@ -484,6 +597,27 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       IAN PHOTO STRIP
+       ========================================== -->
+  <section class="section ian-strip-section">
+    <div class="container">
+      <div class="ian-strip-header reveal">
+        <p class="eyebrow">In the arena</p>
+      </div>
+    </div>
+    <div class="ian-strip reveal reveal-d1" style="padding: 0 var(--container-pad, 24px);">
+
+      <div class="ian-strip__slide">
+        <img src="ian-ncaa-closeup.png" alt="Ian Gunther raising the NCAA championship trophy">
+      </div>
+      <div class="ian-strip__slide">
+        <img src="ian-team.jpg" alt="Stanford men's gymnastics team celebrating their NCAA championship">
+      </div>
+
     </div>
   </section>
 
@@ -545,8 +679,7 @@
         <!-- Ian -->
         <div class="team-card reveal reveal-d2" style="max-width: 400px;">
           <div class="team-photo-wrap">
-            <!-- ASSET: Ian photo — circular crop, same or different from hero -->
-            <img src="ian 1.jpeg" alt="Ian Gunther">
+            <img src="ian-headshot.jpg" alt="Ian Gunther">
           </div>
           <div class="team-name">Ian Gunther</div>
           <div class="team-title">Co-Founder</div>
