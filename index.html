@@ -42,6 +42,7 @@
         <a href="/" class="nav-logo">HAY<span class="red">M</span>AKER</a>
         <ul class="nav-links">
           <li><a href="/">Home</a></li>
+          <li><a href="work">Work</a></li>
           <li><a href="process">Our Process</a></li>
           <li><a href="testimonials">Athletes</a></li>
           <li><a href="programs">For Programs</a></li>
@@ -83,7 +84,7 @@
   </section>
 
   <!-- ==========================================
-       PROOF BAR
+       PROOF BAR — now includes brand strip
        ========================================== -->
   <div class="proof-bar">
     <div class="container">
@@ -135,6 +136,56 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ==========================================
+       BRANDS WE'VE WORKED WITH
+       ========================================== -->
+  <section class="section-sm">
+    <div class="container">
+      <p class="eyebrow reveal" style="margin-bottom: 24px;">Brands we've worked with</p>
+      <div class="brand-strip reveal reveal-d1">
+        <div class="brand-tile">
+          <img src="images/brand-hollyland.png" alt="Hollyland" onerror="this.parentElement.querySelector('.brand-fallback').style.display='block';this.style.display='none'">
+          <span class="brand-fallback" style="display:none;font-family:var(--font-ui);font-size:13px;font-weight:500;color:var(--hm-text-muted);letter-spacing:0.06em;text-transform:uppercase;">Hollyland</span>
+        </div>
+        <div class="brand-tile">
+          <img src="images/brand-arzopa.png" alt="Arzopa" onerror="this.parentElement.querySelector('.brand-fallback').style.display='block';this.style.display='none'">
+          <span class="brand-fallback" style="display:none;font-family:var(--font-ui);font-size:13px;font-weight:500;color:var(--hm-text-muted);letter-spacing:0.06em;text-transform:uppercase;">Arzopa</span>
+        </div>
+        <div class="brand-tile">
+          <img src="images/brand-brooks.png" alt="Brooks" onerror="this.parentElement.querySelector('.brand-fallback').style.display='block';this.style.display='none'">
+          <span class="brand-fallback" style="display:none;font-family:var(--font-ui);font-size:13px;font-weight:500;color:var(--hm-text-muted);letter-spacing:0.06em;text-transform:uppercase;">Brooks</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ==========================================
+       THE WORK — Featured strip
+       ========================================== -->
+  <section class="section" id="the-work">
+    <div class="container">
+
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 32px;">
+        <div>
+          <p class="eyebrow reveal" style="margin-bottom: 12px;">The Work</p>
+          <h2 class="headline-lg reveal reveal-d1">50M+ views.<br><span class="red">Real athletes.</span></h2>
+        </div>
+        <a href="work" class="btn btn-ghost reveal reveal-d2">See all work →</a>
+      </div>
+
+      <div class="work-strip-scroll reveal reveal-d2">
+        <div id="work-featured" class="work-strip">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -336,12 +387,22 @@
   <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu">
     <ul class="mobile-menu-links">
       <li><a href="/">Home</a></li>
+      <li><a href="work">Work</a></li>
       <li><a href="process">Our Process</a></li>
       <li><a href="testimonials">Athletes</a></li>
       <li><a href="programs">For Programs</a></li>
       <li><a href="about">About</a></li>
     </ul>
     <a href="https://forms.gle/S9wnY3Ffvu5MfXEEA" class="mobile-menu-cta">Apply now →</a>
+  </div>
+
+  <!-- Video Modal -->
+  <div id="video-modal" class="video-modal" role="dialog" aria-label="Video player" aria-modal="true">
+    <div class="video-modal-backdrop"></div>
+    <div class="video-modal-content">
+      <button class="video-modal-close" aria-label="Close video">✕</button>
+      <div class="video-modal-embed"></div>
+    </div>
   </div>
 
   <script src="main.js"></script>
