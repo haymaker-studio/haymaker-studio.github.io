@@ -701,21 +701,6 @@ blockquote cite {
   overflow: hidden;
 }
 
-.hero-bg-text {
-  position: absolute;
-  right: -10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: var(--font-display);
-  font-size: clamp(72px, 10vw, 136px);
-  line-height: 1.05;
-  color: rgba(255, 255, 255, 0.055);
-  text-align: right;
-  pointer-events: none;
-  user-select: none;
-  letter-spacing: 0.02em;
-}
-
 .hero-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
