@@ -444,17 +444,17 @@ a {
 
 .step-title {
   font-family: var(--font-ui);
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 28px;
+  font-weight: 600;
   color: var(--hm-text-primary);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   line-height: 1.2;
 }
 
 .step-body {
   font-family: var(--font-body);
-  font-size: 16px;
-  color: var(--hm-text-secondary);
+  font-size: 17px;
+  color: var(--hm-text-primary);
   line-height: 1.75;
 }
 
@@ -693,6 +693,160 @@ blockquote cite {
 }
 
 /* ============================================
+   Hero Split Layout
+   ============================================ */
+.hero-main {
+  padding: calc(var(--nav-height) + 72px) 0 96px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-text {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(72px, 10vw, 136px);
+  line-height: 1.05;
+  color: rgba(255, 255, 255, 0.055);
+  text-align: right;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 0.02em;
+}
+
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  min-height: calc(100svh - var(--nav-height) - 120px);
+}
+
+/* Scale headline down to fit left column */
+.hero-headline--split {
+  font-size: clamp(28px, 3vw, 44px) !important;
+}
+
+/* ── Right panel ── */
+.hero-visual {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--hm-surface-1);
+  aspect-ratio: 4 / 5;
+  max-height: calc(100svh - var(--nav-height) - 120px);
+  align-self: stretch;
+}
+
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide,
+.hero-stat-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.hero-slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero-slide.active,
+.hero-stat-slide.active {
+  opacity: 1;
+}
+
+/* Stat slides */
+.hero-stat-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 48px 40px;
+  background: var(--hm-surface-1);
+}
+
+.hero-stat-slide::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--hm-red);
+}
+
+.hero-stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(80px, 10vw, 130px);
+  line-height: 1;
+  color: var(--hm-text-primary);
+  margin-bottom: 14px;
+}
+
+.hero-stat-text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--hm-text-tertiary);
+}
+
+/* Progress dots */
+.hero-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 3;
+}
+
+.hero-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transition: background 0.35s, transform 0.35s;
+  cursor: pointer;
+}
+
+.hero-dot.active {
+  background: #fff;
+  transform: scale(1.4);
+}
+
+/* Mobile */
+@media (max-width: 860px) {
+  .hero-split {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    min-height: auto;
+  }
+
+  .hero-visual {
+    aspect-ratio: 16 / 9;
+    max-height: 280px;
+    align-self: auto;
+  }
+
+  .hero-stat-slide {
+    padding: 28px 24px;
+  }
+
+  .hero-stat-number {
+    font-size: clamp(56px, 12vw, 80px);
+  }
+}
+
+/* ============================================
    Hero body — headline + body as a column, constrained to ~60% on desktop
    ============================================ */
 .hero-body {
@@ -895,7 +1049,7 @@ blockquote cite {
    ============================================ */
 .wdw-grid {
   display: grid;
-  grid-template-columns: 1fr 1.8fr;
+  grid-template-columns: 1fr 1fr;
   border: 0.5px solid var(--hm-surface-3);
   border-radius: 12px;
   overflow: hidden;
@@ -903,7 +1057,7 @@ blockquote cite {
 }
 
 .wdw-col {
-  padding: 28px 32px 32px;
+  padding: 36px 40px 40px;
   display: flex;
   flex-direction: column;
 }
@@ -935,7 +1089,7 @@ blockquote cite {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 14px;
   flex: 1;
 }
 
@@ -944,9 +1098,9 @@ blockquote cite {
   align-items: center;
   gap: 10px;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 15px;
   color: var(--hm-text-secondary);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .wdw-item::before {
@@ -1183,34 +1337,8 @@ blockquote cite {
   opacity: 0;
 }
 
-/* ============================================
-   Custom Cursor (desktop pointer devices only)
-   ============================================ */
-@media (pointer: fine) {
-  *, *::before, *::after {
-    cursor: none !important;
-  }
-
-  #cursor-dot {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    background: var(--hm-red);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%) scale(1);
-    transition: transform 0.15s ease, width 0.15s ease, height 0.15s ease;
-    top: 0;
-    left: 0;
-    will-change: transform;
-  }
-
-  #cursor-dot.cursor-hover {
-    width: 20px;
-    height: 20px;
-  }
-}
+/* Custom cursor removed — using native browser cursor */
+#cursor-dot { display: none; }
 
 /* ============================================
    Button Enhancements — Scale States
