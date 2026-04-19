@@ -108,6 +108,37 @@
     updateProgress();
   }
 
+  // ── Hero Carousel ────────────────────────────────────────────
+  (function () {
+    var carousel = document.getElementById('hero-carousel');
+    var dotsEl   = document.getElementById('hero-dots');
+    if (!carousel) return;
+    var slides = Array.prototype.slice.call(
+      carousel.querySelectorAll('.hero-slide, .hero-stat-slide')
+    );
+    if (slides.length < 2) return;
+
+    if (dotsEl) {
+      slides.forEach(function (_, i) {
+        var d = document.createElement('div');
+        d.className = 'hero-dot' + (i === 0 ? ' active' : '');
+        dotsEl.appendChild(d);
+      });
+    }
+
+    var current = 0;
+    function advance() {
+      var dots = dotsEl ? dotsEl.querySelectorAll('.hero-dot') : [];
+      slides[current].classList.remove('active');
+      if (dots[current]) dots[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+      if (dots[current]) dots[current].classList.add('active');
+    }
+
+    setInterval(advance, 3500);
+  })();
+
   // ── Custom Cursor ────────────────────────────────────────────
   // Only on pointer:fine (non-touch) devices
   if (window.matchMedia('(pointer: fine)').matches) {
