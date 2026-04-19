@@ -312,6 +312,8 @@
 
   // ── Video Data ───────────────────────────────────────────────
   window.HM_VIDEOS = [
+    // JULIA BLYASHOV — USA U21 National Team · Stanford Volleyball
+    { shortcode: 'DW5E1uXCOCs',     platform: 'instagram', athlete: 'Julia Blyashov',                                       sport: 'USA U21 National Team · Stanford Volleyball', views: '',     featured: true  },
     // PAUL JUDA — USA Gymnastics / Michigan
     { shortcode: 'DIwxvo2zTX8',     platform: 'instagram', athlete: 'Paul Juda',                                          sport: 'USA Gymnastics · Michigan',           views: '4M',    featured: true  },
     { shortcode: 'DJ2psBsyTbc',     platform: 'instagram', athlete: 'Paul Juda',                                          sport: 'USA Gymnastics · Michigan',           views: '839K',  featured: true  },
